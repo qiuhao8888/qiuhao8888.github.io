@@ -395,7 +395,7 @@
       
         
           
-            <p>开发办法：（只要传入content即可，换行使用\n）<br>如以下代码上传至服务器 qiuhao.leanapp.cn/index.php，则客户端（如微信小程序）使用post时地址为以下即可<br>        小程序端代码如下：<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">       url: &apos;https://qiuhao.leanapp.cn/index.php&apos;,						</span><br><span class="line">	data: &#123;</span><br><span class="line">           context: &quot;你好啊\n第二行&quot;,</span><br><span class="line">       &#125;,</span><br><span class="line">       method: &apos;POST&apos;,</span><br><span class="line">       header: &#123;</span><br><span class="line">   		&apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">   	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+            <p>开发办法：（只要传入content即可，换行使用\n）<br>如以下代码上传至服务器 qh.leanapp.cn/index.php，则客户端（如微信小程序）使用post时地址为以下即可<br>        小程序端代码如下：<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">       url: &apos;https://qh.leanapp.cn/index.php&apos;,						</span><br><span class="line">	data: &#123;</span><br><span class="line">           context: &quot;你好啊\n第二行&quot;,</span><br><span class="line">       &#125;,</span><br><span class="line">       method: &apos;POST&apos;,</span><br><span class="line">       header: &#123;</span><br><span class="line">   		&apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">   	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <pre><code>服务器端代码如下：
 &lt;?php 
     /**
@@ -415,10 +415,10 @@
 
         $print = new Yprint();
         //$content = &quot;第一行\n第二行\r\n第三行&quot;;
-        $apiKey = &quot;21d5c5eafdfd3d6dbe8626077f56989ae6bbb5c4&quot;;
-        $msign = &apos;8z2dvahja5tp&apos;;
+        $apiKey = &quot;21d9876567jkjhghjk6dbe8626077f56989ae6bbb5c4&quot;;
+        $msign = &apos;kjhgfghjkjhggh&apos;;
         //打印
-        $print-&gt;action_print(10980, &apos;4004527264&apos;, $content, $apiKey, $msign);
+        $print-&gt;action_print(10980, &apos;4027586264&apos;, $content, $apiKey, $msign);
     }
  ?&gt;
 </code></pre><p>易联云的上传至 leancloud中的yilianyun-print.leanapp.cn<br>因为易联云的api是php的代码，因此要线在leancloud中github一个slim-getting-started的通用模板，然后把易联云的index.php和print.class.php都放到public目录下。<br>然后在cmd命令行中lean deploy上传。在部署的过程中可能会出现部署失败，说获取云函数信息失败，解析失败。没关系。其实已经上传成功了。</p>
