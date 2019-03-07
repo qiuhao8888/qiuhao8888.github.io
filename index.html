@@ -313,6 +313,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/vue-部署到阿里云/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JayJay">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="甜甜和康康的爸爸">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/07/vue-部署到阿里云/" itemprop="url">vue 部署到阿里云</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-07T17:29:38+08:00">
+                2019-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/07/vue-部署到阿里云/" class="leancloud_visitors" data-flag-title="vue 部署到阿里云">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>xshell 和 xftp 配合比较好用<br>xshell用于敲命令<br>xftp用于传文件和找文件<br>网上的免费百度云下载：<a href="https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg" target="_blank" rel="noopener">https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg</a> 自用，公司用还请买正版</li>
+<li><p>以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去<br>server {  </p>
+<pre><code>listen       7088;                // 自定义端口
+server_name  120.79.208.206;      // ip地址
+root         /var/www/vuemusic;   // 目录，随便什么都行
+
+# Load configuration files for the default server block.
+include /etc/nginx/default.d/*.conf;
+
+location / {
+    root /var/www/vuemusic;       // 目录
+    index index.html;             // index.html
+}
+
+error_page 404 /404.html;
+    location = /40x.html {
+}
+
+error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+}
+</code></pre><p>}</p>
+<ol start="3">
+<li>也是容易忽略的一步，上面的端口7088（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口7088，授权对象0.0.0.0/0</li>
+<li>把dist目录下的几个文件通过xftp传到 /var/www/vuemusic 目录下</li>
+<li>记得 第二步改完后，nginx最好重启下</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/02/Bmob-where-语句（MongoDb）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1323,7 +1483,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
