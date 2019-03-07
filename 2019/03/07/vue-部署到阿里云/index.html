@@ -123,17 +123,17 @@
 
 
 
-<meta name="description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       7088;">
+<meta name="description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       80;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue 部署到阿里云">
 <meta property="og:url" content="http://yoursite.com/2019/03/07/vue-部署到阿里云/index.html">
 <meta property="og:site_name" content="甜甜和康康的爸爸">
-<meta property="og:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       7088;">
+<meta property="og:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       80;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-07T09:38:08.757Z">
+<meta property="og:updated_time" content="2019-03-07T15:11:55.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 部署到阿里云">
-<meta name="twitter:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       7088;">
+<meta name="twitter:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       80;">
 
 
 
@@ -397,7 +397,7 @@
         <ol>
 <li>xshell 和 xftp 配合比较好用<br>xshell用于敲命令<br>xftp用于传文件和找文件<br>网上的免费百度云下载：<a href="https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg" target="_blank" rel="noopener">https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg</a> 自用，公司用还请买正版</li>
 <li><p>以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去<br>server {  </p>
-<pre><code>listen       7088;                // 自定义端口
+<pre><code>listen       80;                // 自定义端口
 server_name  120.79.208.206;      // ip地址
 root         /var/www/vuemusic;   // 目录，随便什么都行
 
@@ -418,7 +418,7 @@ error_page 500 502 503 504 /50x.html;
 }
 </code></pre><p>}</p>
 <ol start="3">
-<li>也是容易忽略的一步，上面的端口7088（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口7088，授权对象0.0.0.0/0</li>
+<li>也是容易忽略的一步，上面的端口80（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口7088，授权对象0.0.0.0/0</li>
 <li>把dist目录下的几个文件通过xftp传到 /var/www/vuemusic 目录下</li>
 <li>记得 第二步改完后，nginx最好重启下</li>
 </ol>
