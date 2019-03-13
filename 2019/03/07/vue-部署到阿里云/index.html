@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="甜甜和康康的爸爸">
 <meta property="og:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       80;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-07T15:11:55.007Z">
+<meta property="og:updated_time" content="2019-03-13T03:51:59.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue 部署到阿里云">
 <meta name="twitter:description" content="xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版 以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {   listen       80;">
@@ -418,7 +418,7 @@ error_page 500 502 503 504 /50x.html;
 }
 </code></pre><p>}</p>
 <ol start="3">
-<li>也是容易忽略的一步，上面的端口80（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口7088，授权对象0.0.0.0/0</li>
+<li>也是容易忽略的一步，上面的端口80（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口80，授权对象0.0.0.0/0</li>
 <li>把dist目录下的几个文件通过xftp传到 /var/www/vuemusic 目录下</li>
 <li>记得 第二步改完后，nginx最好重启下</li>
 </ol>
