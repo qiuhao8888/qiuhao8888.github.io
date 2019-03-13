@@ -313,6 +313,140 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/启动express，端口被占用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JayJay">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="甜甜和康康的爸爸">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/13/启动express，端口被占用/" itemprop="url">启动express，端口被占用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-13T19:28:57+08:00">
+                2019-03-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/13/启动express，端口被占用/" class="leancloud_visitors" data-flag-title="启动express，端口被占用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>找到占用端口的node进程：<br><code>$ ps -aux | grep node</code></li>
+<li>强制结束该进程：<br><code>$ kill -s 9 7714</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/centos-安装nodejs-express/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,15 +530,14 @@
         
           
             <ol>
-<li>安装依赖包<br>`yum -y install gcc make gcc-c++ openssl-devel wget</li>
-<li>下载/解压NodeJs<br><code>wget http://nodejs.org/dist/v0.12.7/node-v0.12.7.tar.gz</code>tar -zvxf node-v0.12.7.tar.gz<br>v0.12.7版本太低，需要更新，否则会出现 class 识别不了的故障，因为class是ES6才出现的</li>
-<li>编译及安装，逐行执行<br><code>cd node-v0.12.7</code>./configure<br>`make install</li>
-<li>验证是否安装配置成功<br>`node -v   (node –version)</li>
-<li>安装Express开发框架<br><code>npm install express -g 
-如果安装完后express命令依然显示不存在，可用以下</code>npm install express-generator -g</li>
-<li>创建Express项目命名为demo1<br>`express demo1</li>
-<li>进入项目目录并安装项目依赖组件<br><code>cd demo1</code>npm install</li>
-<li>在demo1的目录里启动项目<br>`node start</li>
+<li>安装依赖包<br><code>yum -y install gcc make gcc-c++ openssl-devel wget</code></li>
+<li>下载/解压NodeJs<br><code>wget http://nodejs.org/dist/v0.12.7/node-v0.12.7.tar.gz</code><br><code>tar -zvxf node-v0.12.7.tar.gz</code><br>v0.12.7版本太低，需要更新，否则会出现 class 识别不了的故障，因为class是ES6才出现的</li>
+<li>编译及安装，逐行执行<br><code>cd node-v0.12.7</code><br><code>./configure</code><br><code>make install</code></li>
+<li>验证是否安装配置成功<br><code>node -v</code>   (node –version)</li>
+<li>安装Express开发框架<br><code>npm install express -g</code><br>如果安装完后express命令依然显示不存在，可用以下<br><code>npm install express-generator -g</code></li>
+<li>创建Express项目命名为demo1<br><code>express demo1</code></li>
+<li>进入项目目录并安装项目依赖组件<br><code>cd demo1</code><br><code>npm install</code></li>
+<li>在demo1的目录里启动项目<br><code>node start</code></li>
 <li>最关键的，依然是端口号，一定要在阿里云的安全组策略里面打开！！！！！否则访问不了。阿里云默认只开80端口</li>
 </ol>
 
@@ -1625,7 +1758,7 @@ error_page 500 502 503 504 /50x.html;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
