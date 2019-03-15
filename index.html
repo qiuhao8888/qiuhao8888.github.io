@@ -395,7 +395,7 @@
       
         
           
-            <p>本文档作为归档。<br>一个项目分为：<br>前端<br> |—-小程序<br> |—-移动端webapp<br> |—-PC端 webapp<br>接口（连接前端，后端和数据库）<br> |—-云函数<br>        |—-Bmob 云函数<br>        |—-Leancloud 云函数<br>        |—-Aliyun 云函数<br>        |—-nodejs express框架<br>后端<br> |—-管理后台（PC web端 nodejs编写）<br>        |—-Leancloud云引擎<br>        |—-GitHub page<br>        |—-阿里云centos nginx<br>数据库<br> |—-Bmob云存储<br> |—-Leancloud云存储<br> |—-Mongodb<br> |—-阿里云存储<br> |—-图 片<br>        |—-七牛云<br>        |—-阿里云oss<br>        |—-Bmob 素材</p>
+            <p>本文档作为归档。<br>一个项目分为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">前端</span><br><span class="line"> |----小程序</span><br><span class="line"> |----移动端webapp</span><br><span class="line"> |----PC端 webapp</span><br><span class="line">接口（连接前端，后端和数据库）</span><br><span class="line"> |----云函数</span><br><span class="line">        |----Bmob 云函数</span><br><span class="line">        |----Leancloud 云函数</span><br><span class="line">        |----Aliyun 云函数</span><br><span class="line">        |----nodejs express框架</span><br><span class="line">后端</span><br><span class="line"> |----管理后台（PC web端 nodejs编写）</span><br><span class="line">        |----Leancloud云引擎</span><br><span class="line">        |----GitHub page</span><br><span class="line">        |----阿里云centos nginx</span><br><span class="line">数据库</span><br><span class="line"> |----Bmob云存储</span><br><span class="line"> |----Leancloud云存储</span><br><span class="line"> |----Mongodb</span><br><span class="line"> |----阿里云存储</span><br><span class="line"> |----图 片</span><br><span class="line">        |----七牛云（需要绑定一个备过案的域名，个人的也行）</span><br><span class="line">        |----阿里云oss</span><br><span class="line">        |----Bmob 素材</span><br></pre></td></tr></table></figure></p>
 <h1 id="管理后台"><a href="#管理后台" class="headerlink" title="管理后台"></a>管理后台</h1><h2 id="使用-nodejs-vue-elementUI"><a href="#使用-nodejs-vue-elementUI" class="headerlink" title="使用 nodejs + vue + elementUI"></a>使用 nodejs + vue + elementUI</h2><p>目前nodejs最完善的管理后台，25000多star，gihub地址：<a href="https://github.com/PanJiaChen/vue-element-admin。" target="_blank" rel="noopener">https://github.com/PanJiaChen/vue-element-admin。</a><br>修改完后，生成的文件在 dist 文件夹内。不管是扔到leancloud的网站托管，还是github page，还是自己搭建一个nginx服务器，上传的其实都是dist文件夹里的内容</p>
 <h3 id="Leancloud-网站托管："><a href="#Leancloud-网站托管：" class="headerlink" title="Leancloud 网站托管："></a>Leancloud 网站托管：</h3><p>好处是：上线快，可以用他们的二级域名<br>缺点是：性价比低，文档差</p>
 <ol>
@@ -405,8 +405,9 @@
 <li>lean switch 选择新建的那个应用</li>
 <li>lean deploy (第一次如果不成功，就多试几次)</li>
 <li>如果是付费的标准环境，lean publish</li>
-<li>访问时可用 projectname.leanapp.cn 来访问<h3 id="Github-page"><a href="#Github-page" class="headerlink" title="Github page"></a>Github page</h3>好处是：免费，可以用他们的二级域名<br>缺点是：国外服务器，真tm叫一个慢。可人家免费阿。自己做blog还行</li>
+<li>访问时可用 projectname.leanapp.cn 来访问</li>
 </ol>
+<h3 id="Github-page"><a href="#Github-page" class="headerlink" title="Github page"></a>Github page</h3><p>好处是：免费，可以用他们的二级域名<br>缺点是：国外服务器，真tm叫一个慢。可人家免费阿。自己做blog还行</p>
 <h3 id="自建-nginx-服务器"><a href="#自建-nginx-服务器" class="headerlink" title="自建 nginx 服务器"></a>自建 nginx 服务器</h3><ol>
 <li>去阿里云买一个服务器<br>a) 可以买个ECS (预装操作系统centos 7.3)，缺点是什么都得自己装，优点是想装什么装什么<br>b) 轻量应用服务器 （选择nodejs），优点是默认的都装好了，而且因为是套装所以比ECS便宜，缺点是版本太老，自己还得更新<br>c) 哪个便宜买哪个，有时会有活动。无非就是苦点累点自己重新搭系统。</li>
 <li>安装 nginx</li>
@@ -418,6 +419,8 @@
 <li>把 dist 文件夹下生成的文件都用 xftp 扔到 /var/www/myproject 目录下去</li>
 <li>也是最重要的一步，一定要去阿里云的安全控制组里把 80 端口打开，而且是双向。不同厂家的不同版本的服务器默认打开的端口是不一样的，一定要检查。<br>好几次都是因为端口的问题导致没打开。</li>
 <li>记得重启系统</li>
+<li>在浏览器里输入 IP地址，只要阿里云安全组里端口打开了，基本网页就打开了。</li>
+<li>用一个域名指向这个IP地址。<br>注：如果服务器是国内服务器，则域名需要备案，否则指向后会打不开；如果服务器是国外的，那无所谓</li>
 </ol>
 
           
@@ -1782,7 +1785,7 @@ error_page 500 502 503 504 /50x.html;
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
