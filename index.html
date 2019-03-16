@@ -355,6 +355,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -395,77 +417,16 @@
       
         
           
-            <p>本文档作为归档。<br>一个项目分为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">前端</span><br><span class="line"> |----小程序</span><br><span class="line"> |----移动端webapp</span><br><span class="line"> |----PC端 webapp</span><br><span class="line">接口（连接前端，后端和数据库）</span><br><span class="line"> |----云函数</span><br><span class="line">        |----Bmob 云函数</span><br><span class="line">        |----Leancloud 云函数</span><br><span class="line">        |----Aliyun 云函数</span><br><span class="line">        |----nodejs express框架</span><br><span class="line">后端</span><br><span class="line"> |----管理后台（PC web端 nodejs编写）</span><br><span class="line">        |----Leancloud云引擎</span><br><span class="line">        |----GitHub page</span><br><span class="line">        |----阿里云centos nginx</span><br><span class="line">数据库</span><br><span class="line"> |----Bmob云存储</span><br><span class="line"> |----Leancloud云存储</span><br><span class="line"> |----Mongodb</span><br><span class="line"> |----阿里云存储</span><br><span class="line"> |----图 片</span><br><span class="line">        |----七牛云（需要绑定一个备过案的域名，个人的也行）</span><br><span class="line">        |----阿里云oss</span><br><span class="line">        |----Bmob 素材</span><br></pre></td></tr></table></figure></p>
-<h1 id="管理后台"><a href="#管理后台" class="headerlink" title="管理后台"></a>管理后台</h1><h2 id="使用-nodejs-vue-elementUI"><a href="#使用-nodejs-vue-elementUI" class="headerlink" title="使用 nodejs + vue + elementUI"></a>使用 nodejs + vue + elementUI</h2><p>目前nodejs最完善的管理后台，25000多star，gihub地址：<a href="https://github.com/PanJiaChen/vue-element-admin。" target="_blank" rel="noopener">https://github.com/PanJiaChen/vue-element-admin。</a><br>修改完后，生成的文件在 dist 文件夹内。不管是扔到leancloud的网站托管，还是github page，还是自己搭建一个nginx服务器，上传的其实都是dist文件夹里的内容</p>
-<h3 id="Leancloud-网站托管（云引擎）："><a href="#Leancloud-网站托管（云引擎）：" class="headerlink" title="Leancloud 网站托管（云引擎）："></a>Leancloud 网站托管（云引擎）：</h3><p>好处是：上线快，可以用他们的二级域名<br>缺点是：性价比低，文档差</p>
-<ol>
-<li>在lean cloud后台新建一个应用，记得设置域名，如 myproject.leanapp.cn</li>
-<li>在本地电脑下载leancloud的nodejs上传框架（express）</li>
-<li>把dist文件夹里生成的内容扔到框架里的public文件夹里</li>
-<li>lean switch 选择新建的那个应用</li>
-<li>lean deploy (第一次如果不成功，就多试几次)</li>
-<li>如果是付费的标准环境，lean publish</li>
-<li>访问时可用 projectname.leanapp.cn 来访问</li>
-</ol>
-<h3 id="Github-page"><a href="#Github-page" class="headerlink" title="Github page"></a>Github page</h3><p>好处是：免费，可以用他们的二级域名<br>缺点是：国外服务器，真tm叫一个慢。可人家免费阿。自己做blog还行</p>
-<h3 id="阿里云自建-nginx-服务器"><a href="#阿里云自建-nginx-服务器" class="headerlink" title="阿里云自建 nginx 服务器"></a>阿里云自建 nginx 服务器</h3><ol>
-<li>去阿里云买一个服务器<br>a) 可以买个ECS (预装操作系统centos 7.3)，缺点是什么都得自己装，优点是想装什么装什么<br>b) 轻量应用服务器 （选择nodejs），优点是默认的都装好了，而且因为是套装所以比ECS便宜，缺点是版本太老，自己还得更新<br>c) 哪个便宜买哪个，有时会有活动。无非就是苦点累点自己重新搭系统。</li>
-<li>安装 nginx</li>
-<li><p>完成后找到  /etc/nginx/nginx.conf 这个文件，修改里面的部分参数。<br>注1：使用 xftp 工具找这个文件，并拖动到左侧桌面编辑，不容易出错<br>注2：敲命令用 xshell 工具<br>需要修改的参数为：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  server </span><br><span class="line">  &#123;  </span><br><span class="line">      listen       80;                // 80端口直接打开</span><br><span class="line">      server_name  120.79.208.***;      // ip地址</span><br><span class="line">      root         /var/www/myproject;   // 目录，随便什么都行</span><br><span class="line"></span><br><span class="line">      # Load configuration files for the default server block.</span><br><span class="line">      include /etc/nginx/default.d/*.conf;</span><br><span class="line"></span><br><span class="line">      location / &#123;</span><br><span class="line">          root /var/www/myproject;       // 目录</span><br><span class="line">	index index.html;             // index.html</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">      error_page 404 /404.html;</span><br><span class="line">          location = /40x.html &#123;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      error_page 500 502 503 504 /50x.html;</span><br><span class="line">          location = /50x.html &#123;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<p> 以上几个参数极为重要。目录，端口，ip千万别错</p>
-</li>
-<li>修改完后用 xftp 拖回服务器，覆盖原nginx.conf<br>注：如果使用的是轻量应用服务器，nginx.conf在另一个目录，/usr/local/nginx/nginx.conf 可别改错了<br>nginx.conf 这个文件是告诉服务器，如果有人访问 120.79.208.***:80端口，则打开 /var/www/myproject 文件夹下的 index.html 文件。而这个index.html 文件就是 dist 文件夹下的index.html。</li>
-<li>把 dist 文件夹下生成的文件都用 xftp 扔到 /var/www/myproject 目录下去</li>
-<li>也是最重要的一步，一定要去阿里云的安全控制组里把 80 端口打开，而且是双向。不同厂家的不同版本的服务器默认打开的端口是不一样的，一定要检查。<br>好几次都是因为端口的问题导致没打开。</li>
-<li>记得重启系统<br><code>/usr/local/nginx/sbin/nginx -s reload</code></li>
-<li>在浏览器里输入 IP地址，只要阿里云安全组里端口打开了，基本网页就打开了。</li>
-<li>用一个域名指向这个IP地址。<br>注：如果服务器是国内服务器，则域名需要备案，否则指向后会打不开；如果服务器是国外的，那无所谓</li>
-</ol>
-<h1 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h1><h2 id="利用后端云"><a href="#利用后端云" class="headerlink" title="利用后端云"></a>利用后端云</h2><p>后端云的优势在于上线速度快，可以实现数据库存储，云函数，验证，短信等多种功能。适用于小型应用。<br>切记，免费版只是自己验证用。如果客户量大，使用频率高的正式版必须联系他们进行付费，只要付钱，他们会进行服务器迁移，甚至专线，别说并发，几百的ddos都能挡。<br>我用过的后端云有Leancloud， Bmob。知晓云也出了，只是因为刚出，所以不太敢用，毕竟迁移风险太大（主要是懒）。<br>不管谁家的，数据库和云函数配合着使用。另外，每一家或许是经费有限，很多文档都更新不及时，需要自己摸索。</p>
-<h3 id="Bmob"><a href="#Bmob" class="headerlink" title="Bmob"></a>Bmob</h3><ol>
-<li>数据库里新建自己的表格（不展开）</li>
-<li><p>云函数<br>a) 常用几种用法如下</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">function onRequest(request, response, modules) &#123;    </span><br><span class="line">    var db = modules.oData;</span><br><span class="line">    var objectId = request.body.objectId;  // 获取传入参数</span><br><span class="line">    var functions = modules.oFunctions;    // bmob云函数调用另一个bmob云函数</span><br><span class="line">    </span><br><span class="line">    db.findOne(&#123;</span><br><span class="line">        &quot;table&quot;:&quot;TestMenu1&quot;,             </span><br><span class="line">        &quot;objectId&quot;:objectId         //记录的objectId</span><br><span class="line">    &#125;,function(err,data)&#123; </span><br><span class="line"></span><br><span class="line">        var http = modules.oHttp;</span><br><span class="line">            </span><br><span class="line">        var options = &#123;</span><br><span class="line">            &quot;url&quot;: &apos;http://120.79.208.***:7088/print_post&apos;,</span><br><span class="line">            &quot;headers&quot;: &#123;</span><br><span class="line">                &apos;Content-Type&apos;: &apos;application/x-www-form-urlencoded&apos;   // 注意，易联云打印机 application/x-www-form-urlencoded</span><br><span class="line">            &#125;,</span><br><span class="line">            &quot;body&quot;: &quot;machineCode=&quot; + machineCode + &quot;&amp;originId=&quot; + objectId + &quot;&amp;content=&quot; + printtext   // 注意，不要有&amp;字符，否则会被截断</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        http.post(options, function(error, res, body) &#123;        // 通过bmob调用post请求</span><br><span class="line">            var result3= JSON.parse(body); </span><br><span class="line">            db.insert(&#123;    // 插入一行</span><br><span class="line">                &quot;table&quot;:&quot;log&quot;,             </span><br><span class="line">                &quot;data&quot;:&#123;&quot;name&quot;: result.nickName, &quot;info&quot;:body, &quot;function&quot;: &apos;ylyPrintBmob&apos;&#125;</span><br><span class="line">                &#125;,function(err,data)&#123;</span><br><span class="line">                response.send(&quot;insert success&quot;);        </span><br><span class="line">            &#125;);</span><br><span class="line">            db.update(&#123;    // 更新</span><br><span class="line">                    &quot;table&quot;:&quot;TestMenu1&quot;,</span><br><span class="line">                    &quot;objectId&quot;:objectId,</span><br><span class="line">                    &quot;data&quot;:&#123;&quot;Payorder&quot;:payorder&#125;</span><br><span class="line">                &#125;,function(err,data)&#123;</span><br><span class="line">                response.send(&quot;update success&quot;);</span><br><span class="line">            &#125;);    </span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p> b) 关于表中的条件搜索，bmob文档更新不及时，类似如下</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">db.find(&#123;</span><br><span class="line">    &quot;table&quot;:&quot;_User&quot;,          // 表名</span><br><span class="line">    &quot;key&quot;:&quot;star,auditTimes&quot;,         // 返回字段列表，多个字段用,分隔</span><br><span class="line">    &quot;where&quot;:&#123;&quot;objectId&quot;:&#123;&quot;$in&quot;:fathers&#125;&#125;,       // 查询 objectId 在字段 fathers 中</span><br><span class="line">    //&quot;where&quot;:&#123;&quot;objectId&quot;:&#123;&quot;$in&quot;:[&apos;13017cc421&apos;,&apos;5b0edfcffb&apos;,&apos;4b09ab97de&apos;,&apos;72a1772287&apos;]&#125;&#125;,       </span><br><span class="line">    // 以上查询 objectId 在数组 [&apos;13017cc421&apos;,&apos;5b0edfcffb&apos;,&apos;4b09ab97de&apos;,&apos;72a1772287&apos;] 中的</span><br><span class="line">    //&quot;where&quot;:&#123;&quot;c&quot;:&#123;&quot;$ne&quot;:1&#125;&#125;,       // 条件查询 查询c字段值不为1的记录</span><br><span class="line">    //&quot;order&quot;:&quot;-a,b&quot;,         // 排序列表，[-]字段名称,-表示降序，默认为升序</span><br><span class="line">    //&quot;limit&quot;:10,            // limit大小，一页返回多少条记录，默认为0</span><br><span class="line">    &quot;count&quot;:1            // count,只返回符合条件的记录总数</span><br><span class="line">&#125;,function(err,data)&#123;  </span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// 以下功能为将符合条件的结果的 firstLayerNum 数值求和！！</span><br><span class="line">db.find(&#123;</span><br><span class="line">	table: &apos;_User&apos;,</span><br><span class="line">	sum: &apos;firstLayerNum&apos;,   </span><br><span class="line">	where: &#123;</span><br><span class="line">	    fathers: myUserId,     // fathers中有myUserId</span><br><span class="line">	    &quot;star&quot;:&#123;&quot;$ne&quot;: &quot;0&quot;&#125;    // 同时 star不为0</span><br><span class="line">	&#125;, // </span><br><span class="line"> 	/*where: &#123;</span><br><span class="line">		&apos;$or&apos;: [                   // 或</span><br><span class="line">			&#123;fathers: myUserId&#125;,   // fathers中有myUserId</span><br><span class="line">			&#123;objectId: myUserId&#125;   // 或者 objectId 为myUserId</span><br><span class="line">		]</span><br><span class="line">	&#125;,*/</span><br><span class="line">	//where:&#123;&quot;star&quot;:&#123;&quot;$ne&quot;: &quot;1&quot;&#125;&#125;,</span><br><span class="line">&#125;, function(err, data)&#123;</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h3 id="Leancloud"><a href="#Leancloud" class="headerlink" title="Leancloud"></a>Leancloud</h3><p>用法与Bmob类似，最初用的是Leancloud，后来迁到 Bmob，主要是Leancloud总是感觉各种诡异的不稳定，实在是鄙人能力有限解决不了…… </p>
-<h3 id="Node-express-框架自己写"><a href="#Node-express-框架自己写" class="headerlink" title="Node express 框架自己写"></a>Node express 框架自己写</h3><ol>
-<li>买个阿里云服务器，预装centos 7.3或以上稳定版本</li>
-<li>安装nodejs，注意版本，装最新的稳定版</li>
-<li>安装express<br>npm install express-generator -g<br>安装完后，记得用 express 命令试一下。如果始终express命令不存在，建议重装nodejs</li>
-<li>使用创建 Express 框架创建项目命名为 myapp<br>express myapp</li>
-<li><p>给myapp安装一些插件<br>body-parser - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。<br>cookie-parser - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。<br>multer - node.js 中间件，用于处理 enctype=”multipart/form-data”（设置表单的MIME编码）的表单数据。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install body-parser --save</span><br><span class="line">$ cnpm install cookie-parser --save</span><br><span class="line">$ cnpm install multer --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装日志插件 log4js</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install log4js</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 以下为日志处理模块</span><br><span class="line">const log4js = require(&apos;log4js&apos;);</span><br><span class="line">log4js.configure(&#123;</span><br><span class="line">appenders: &#123; cheese: &#123; type: &apos;file&apos;, filename: &apos;cheese.log&apos; &#125; &#125;,   // 日志输出在 cheese.log 文件夹下</span><br><span class="line">categories: &#123; default: &#123; appenders: [&apos;cheese&apos;], level: &apos;info&apos; &#125; &#125;  // 注意这个level，只保存info及下方的 warn, error, fatal</span><br><span class="line">&#125;);</span><br><span class="line">const logger = log4js.getLogger(&apos;cheese&apos;);</span><br><span class="line">/*logger.trace(&apos;Entering cheese testing&apos;);</span><br><span class="line">logger.debug(&apos;Got cheese.&apos;);</span><br><span class="line">logger.info(&apos;Cheese is Comté.&apos;);  // 保存</span><br><span class="line">logger.warn(&apos;Cheese is quite smelly.&apos;);  // 保存</span><br><span class="line">logger.error(&apos;Cheese is too ripe!&apos;);  // 保存</span><br><span class="line">logger.fatal(&apos;Cheese was breeding ground for listeria.&apos;);  // 保存 */</span><br><span class="line">// 以上为日志处理模块</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装定时器模块<br> 安装<br> <code>npm install node-schedule --save 或者 yarn add node-schedule</code></p>
-<p> 用法<br> 1、Cron风格定时器<br> <code>const schedule = require(&#39;node-schedule&#39;);</code></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 以下为定时执行，刷新token</span><br><span class="line">var tokenData = &#123;</span><br><span class="line">    &apos;accessToken&apos; : &apos;&apos;, </span><br><span class="line">    &apos;refreshToken&apos; : &apos;&apos;, </span><br><span class="line">    &apos;machineCode&apos;: &apos;&apos;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">const schedule = require(&apos;node-schedule&apos;);</span><br><span class="line">const  scheduleCronstyle = ()=&gt;&#123;</span><br><span class="line">//每月的1日1点1分30秒触发，更新一次密钥:</span><br><span class="line">    schedule.scheduleJob(&apos;30 1 1 1 * *&apos;,()=&gt;&#123;</span><br><span class="line">        console.log(&apos;scheduleCronstyle:&apos; + new Date());</span><br><span class="line">        logger.info(&apos;定时执行密钥刷新&apos;);  </span><br><span class="line">        oauthClient.getToken().then(function (res)&#123;</span><br><span class="line">            if (</span><br><span class="line">                res.error != 0 &amp;&amp;</span><br><span class="line">                res.error_description != &apos;success&apos;</span><br><span class="line">            ) &#123;</span><br><span class="line">                throw new Error(&apos;failed:&apos; + res.error_description);</span><br><span class="line">            &#125;</span><br><span class="line">            tokenData.accessToken = res.body.access_token;</span><br><span class="line">            tokenData.refreshToken = res.body.refresh_token;</span><br><span class="line">            // console.log(&apos;更新后的密钥为&apos;, res); </span><br><span class="line">            logger.info(&apos;更新后的密钥为&apos; + JSON.stringify(res));            </span><br><span class="line">            // console.log(&apos;存储后的密钥为&apos;, tokenData);        </span><br><span class="line">            logger.info(&apos;存储后的密钥为&apos; + JSON.stringify(tokenData));          </span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;); </span><br><span class="line">&#125;</span><br><span class="line">scheduleCronstyle();</span><br><span class="line">// 以上为定时执行，refresh token</span><br></pre></td></tr></table></figure>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">每分钟的第30秒触发： &apos;30 * * * * *&apos;</span><br><span class="line">每小时的1分30秒触发 ：&apos;30 1 * * * *&apos;</span><br><span class="line">每天的凌晨1点1分30秒触发 ：&apos;30 1 1 * * *&apos;</span><br><span class="line">每月的1日1点1分30秒触发 ：&apos;30 1 1 1 * *&apos;</span><br><span class="line">2016年的1月1日1点1分30秒触发 ：&apos;30 1 1 1 2016 *&apos;</span><br><span class="line">每周1的1点1分30秒触发 ：&apos;30 1 1 * * 1&apos;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>启动模块测试<br> 在express框架生成后的myapp文件夹下有个express.js，内容大致如下。表示express.js将监听7088端口号，同时收到print请求时会返回字符串 ‘新的请求……’</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">app.get(&apos;/print&apos;, function (req, res) &#123;</span><br><span class="line">    res.send(&apos;新的请求......&apos;);</span><br><span class="line">    console.log(&quot;新的请求......&quot;)</span><br><span class="line">&#125;)</span><br><span class="line">var server = app.listen(7088, function () &#123; </span><br><span class="line">    var host = server.address().address</span><br><span class="line">    var port = server.address().port </span><br><span class="line">    console.log(&quot;成功啦成功啦，访问地址为 http://%s:%s&quot;, host, port) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<p> 直接执行以下命令，即可启动，并用外网访问IP地址以及端口号时可以看到返回的字符串 ‘新的请求……’<br> <code>node express.js</code><br> 注：当使用外网ip访问此端口号时，如在浏览器内直接输入 <a href="http://120.79.208.***:7088/print，" target="_blank" rel="noopener">http://120.79.208.***:7088/print，</a> 如果没有反应，先检查阿里云服务器安全组内该端口号有没有开。<br> 阿里云不同的服务器默认打开的端口都不一样，包括80端口都需要检查。确保双向打开。</p>
-</li>
-<li>安装 forever 模块<br> 使用 node express.js 启动的进程在推出 xshell 之后就会自动关闭，所以需要使用 forever 启动进程，即使退出控制台也能继续执行下去。<br> // 如果没有forever，就安装。记得加-g，forever要求安装到全局环境下<br> <code>$ sudo npm install forever -g</code><br> 启用进程 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cd myapp</span><br><span class="line">$ forever start ylyPrint.js</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="图片服务器"><a href="#图片服务器" class="headerlink" title="图片服务器"></a>图片服务器</h1><h2 id="七牛云"><a href="#七牛云" class="headerlink" title="七牛云"></a>七牛云</h2><p>由于监管越来越严，七牛云的图片存储需要绑定备过案的域名，不能再像以前一样，使用七牛分配的域名了。这点很重要。只要是备过案的就行，无所谓企业备案还是个人备案。<br>    1) vue中图片上传可使用elementUI封装的 el-upload 控件<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-upload</span><br><span class="line">    :data=&quot;dataObj&quot;                       // dataObj: &#123; token: &apos;&apos;, key: &apos;0127.jpg&apos; &#125;,</span><br><span class="line">    :multiple=&quot;false&quot;</span><br><span class="line">    :before-upload=&quot;beforeAvatarUpload&quot;   // 传之前做的事</span><br><span class="line">    :on-preview=&quot;handlePreview&quot;</span><br><span class="line">    :on-remove=&quot;handleRemove&quot;</span><br><span class="line">    :on-success=&quot;handleSuccess&quot;           // 传完后做的事，如拼接并保存图片名字</span><br><span class="line">    :file-list=&quot;fileList2&quot;                // 图片列表</span><br><span class="line">    action=&quot;https://upload.qiniup.com&quot;    // 七牛接受直传的api地址</span><br><span class="line">    class=&quot;upload-demo&quot;</span><br><span class="line">    list-type=&quot;picture-card&quot;&gt;             // el-upload 空间的样式</span><br><span class="line">    &lt;el-button size=&quot;small&quot; type=&quot;primary&quot;&gt;點擊上傳&lt;/el-button&gt;</span><br><span class="line">    &lt;div slot=&quot;tip&quot; class=&quot;el-upload__tip&quot;&gt;只能上傳jpg/png文件，且不超過5M&lt;/div&gt;</span><br><span class="line">&lt;/el-upload&gt;</span><br></pre></td></tr></table></figure></p>
-<pre><code>2) handleSuccess()
-由于七牛云上传成功后返回的只有图片在空间里的name，所以图片的路径需要自己拼接后保存。 如：http://ttkk.com/myimage.jpg
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">handleSuccess(response, file, fileList) &#123;</span><br><span class="line">  // console.log(&apos;fileList=&apos;, fileList)</span><br><span class="line">  this.fileList2.push(&#123;                                     // 把新图片push 到当前图片列表中</span><br><span class="line">    name: response.key,                                     // response.key 是图片在七牛的name</span><br><span class="line">    url: &apos;http://&apos; + this.qiniuaddr + &apos;/&apos; + response.key    // 拼接</span><br><span class="line">  &#125;)</span><br><span class="line">  // console.log(&apos;filelist2=&apos;, this.fileList2)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-
-3) beforeAvatarUpload()
-在上传之前，需要给 dataObj 传两个参数，一个是文件名给到key，一个是token给到token。这两个对了就基本没问题了。
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">beforeAvatarUpload(file) &#123;</span><br><span class="line">  console.log(&apos;beforeAvatarUpload&apos;)</span><br><span class="line">  this.dataObj.key = file.name</span><br><span class="line">  const isJPG = file.type === &apos;image/jpeg&apos; || file.type === &apos;image/png&apos;</span><br><span class="line">  const isLt2M = file.size / 1024 / 1024 &lt; 5</span><br><span class="line">  if (!isJPG) &#123;</span><br><span class="line">    return this.$message.error(&apos;上传文件只能是  JPG或PNG 格式!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  if (!isLt2M) &#123;</span><br><span class="line">    return this.$message.error(&apos;上传图片大小不能超过 5MB!&apos;)</span><br><span class="line">  &#125;</span><br><span class="line">  var token = getToken()                      // getToken 函数去 qiniu.js 里找，里面需要输入用户的id和密钥</span><br><span class="line">  console.log(&apos;token=&apos;, token)</span><br><span class="line">  this.dataObj.token = token</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
-</code></pre>
-          
+          本文档作为归档。一个项目分为：123456789101112131415161718192021222324前端 |----小程序 |----移动端webapp |----PC端 webapp接口（连接前端，后端和数据库） |----云函数        |----Bmob 云函数        |----Leancloud 云函数        |----Aliyun 云函数        |----nodejs express框架后端 |----管理后台（PC web端 nodejs编写）        |----Leancloud云引擎        |----GitHub page        |----阿里云centos nginx数据库 |----Bmob云存储 |----Leancloud云存储 |----Mongodb |----阿里云存储 |----图 片        |----七牛云（需要绑定一个备过案的域名，个人的也行）        |----阿里云oss        |----Bmob 素材
+管理后台使用 nodejs + vue + elementUI
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/15/阿里云-后台及接口-归档-nodejs/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -554,6 +515,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -594,10 +577,17 @@
       
         
           
-            <p>进入目录，永久进程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1. cd myapp</span><br><span class="line">2. forever start ylyPrint.js</span><br></pre></td></tr></table></figure></p>
-<p>// 如果没有forever，就安装。记得加-g，forever要求安装到全局环境下<br>sudo npm install forever -g</p>
+          进入目录，永久进程121. cd myapp2. forever start ylyPrint.js
+// 如果没有forever，就安装。记得加-g，forever要求安装到全局环境下sudo npm install forever -g
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/14/永久nodejs/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -686,6 +676,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -726,10 +738,17 @@
       
         
           
-            <p>安装<br><code>npm install node-schedule --save 或者 yarn add node-schedule</code></p>
-<p>用法<br>1、Cron风格定时器<br><code>const schedule = require(&#39;node-schedule&#39;);</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const  scheduleCronstyle = ()=&gt;&#123;</span><br><span class="line">  //每分钟的第30秒定时执行一次:</span><br><span class="line">    schedule.scheduleJob(&apos;30 * * * * *&apos;,()=&gt;&#123;</span><br><span class="line">        console.log(&apos;scheduleCronstyle:&apos; + new Date());</span><br><span class="line">    &#125;); </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">scheduleCronstyle();</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">每分钟的第30秒触发： &apos;30 * * * * *&apos;</span><br><span class="line">每小时的1分30秒触发 ：&apos;30 1 * * * *&apos;</span><br><span class="line">每天的凌晨1点1分30秒触发 ：&apos;30 1 1 * * *&apos;</span><br><span class="line">每月的1日1点1分30秒触发 ：&apos;30 1 1 1 * *&apos;</span><br><span class="line">2016年的1月1日1点1分30秒触发 ：&apos;30 1 1 1 2016 *&apos;</span><br><span class="line">每周1的1点1分30秒触发 ：&apos;30 1 1 * * 1&apos;</span><br></pre></td></tr></table></figure>
-          
+          安装npm install node-schedule --save 或者 yarn add node-schedule
+用法1、Cron风格定时器const schedule = require(&#39;node-schedule&#39;);12345678const  scheduleCronstyle = ()=&gt;&#123;  //每分钟的第30秒定时执行一次:    schedule.scheduleJob(&apos;30 * * * * *&apos;,()=&gt;&#123;        console.log(&apos;scheduleCronstyle:&apos; + new Date());    &#125;); &#125;scheduleCronstyle();
+123456每分钟的第30秒触发： &apos;30 * * * * *&apos;每小时的1分30秒触发 ：&apos;30 1 * * * *&apos;每天的凌晨1点1分30秒触发 ：&apos;30 1 1 * * *&apos;每月的1日1点1分30秒触发 ：&apos;
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/13/nodejs-定时器/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -818,6 +837,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -858,12 +899,19 @@
       
         
           
-            <ol>
-<li>找到占用端口的node进程：<br><code>$ ps -aux | grep node</code></li>
-<li>强制结束该进程：<br><code>$ kill -s 9 7714</code></li>
-</ol>
+          
+找到占用端口的node进程：$ ps -aux | grep node
+强制结束该进程：$ kill -s 9 7714
+
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/13/启动express，端口被占用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -952,6 +1000,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -992,21 +1062,24 @@
       
         
           
-            <ol>
-<li>安装依赖包<br><code>yum -y install gcc make gcc-c++ openssl-devel wget</code></li>
-<li>下载/解压NodeJs<br><code>wget http://nodejs.org/dist/v0.12.7/node-v0.12.7.tar.gz</code><br><code>tar -zvxf node-v0.12.7.tar.gz</code><br>v0.12.7版本太低，需要更新，否则会出现 class 识别不了的故障，因为class是ES6才出现</li>
-<li>编译及安装，逐行执行<br><code>cd node-v0.12.7</code><br><code>./configure</code><br><code>make install</code></li>
-<li>验证是否安装配置成功<br><code>node -v</code>   (node –version)</li>
-<li>安装Express开发框架<br><code>npm install express -g</code><br>如果安装完后express命令依然显示不存在，可用以下<br><code>npm install express-generator -g</code></li>
-<li>创建Express项目命名为demo1<br><code>express demo1</code></li>
-<li>进入项目目录并安装项目依赖组件<br><code>cd demo1</code><br><code>npm install</code></li>
-<li>在demo1的目录里启动项目<br><code>node start</code></li>
-<li>最关键的，依然是端口号，一定要在阿里云的安全组策略里面打开！！！！！否则访问不了。阿里云默认只开80端口</li>
-</ol>
-<p>安装 Express 并将其保存到依赖列表中：<br><code>$ cnpm install express --save</code></p>
-<p>以上命令会将 Express 框架安装在当前目录的 node_modules 目录中， node_modules 目录下会自动创建 express 目录。以下几个重要的模块是需要与 express 框架一起安装的：<br>body-parser - node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据。<br>cookie-parser - 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。<br>multer - node.js 中间件，用于处理 enctype=”multipart/form-data”（设置表单的MIME编码）的表单数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cnpm install body-parser --save</span><br><span class="line">$ cnpm install cookie-parser --save</span><br><span class="line">$ cnpm install multer --save</span><br></pre></td></tr></table></figure></p>
-
           
+安装依赖包yum -y install gcc make gcc-c++ openssl-devel wget
+下载/解压NodeJswget http://nodejs.org/dist/v0.12.7/node-v0.12.7.tar.gztar -zvxf node-v0.12.7.tar.gzv0.12.7版本太低，需要更新，否则会出现 class 识别不了的故障，因为class是ES6才出现
+编译及安装，逐行执行cd node-v0.12.7./configuremake install
+验证是否安装配置成功node -v   (node –version)
+安装Express开发框架npm install express -g如果安装完后express命令依然显示不存在，可用以下npm install express-generator -g
+创建Express项目命名为demo1express demo1
+进入项目目录并安装项目依赖组件cd demo1npm install
+在demo1的目录里启动项目node start
+最关键的，依然是端口号，一定要在阿里云的安全组
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/13/centos-安装nodejs-express/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1095,6 +1168,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1135,10 +1230,10 @@
       
         
           
-            <ol>
-<li>xshell 和 xftp 配合比较好用<br>xshell用于敲命令<br>xftp用于传文件和找文件<br>网上的免费百度云下载：<a href="https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg" target="_blank" rel="noopener">https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg</a> 自用，公司用还请买正版</li>
-<li><p>以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去<br>server {  </p>
-<pre><code>listen       80;                // 自定义端口
+          
+xshell 和 xftp 配合比较好用xshell用于敲命令xftp用于传文件和找文件网上的免费百度云下载：https://pan.baidu.com/s/1OlBSYFjdk9oDXot_V9VZUg 自用，公司用还请买正版
+以下文件在 /etc/nginx/nginx.conf 内，使用 xftp 下载到桌面后修改，再传回去server {  
+listen       80;                // 自定义端口
 server_name  120.79.208.206;      // ip地址
 root         /var/www/vuemusic;   // 目录，随便什么都行
 
@@ -1147,26 +1242,15 @@ include /etc/nginx/default.d/*.conf;
 
 location / {
     root /var/www/vuemusic;       // 目录
-    index index.html;             // index.html
-}
-
-error_page 404 /404.html;
-    location = /40x.html {
-}
-
-error_page 500 502 503 504 /50x.html;
-    location = /50x.html {
-}
-</code></pre><p>}</p>
-<ol start="3">
-<li>也是容易忽略的一步，上面的端口80（或者其他自定义的），记得在阿里云ECS的安全组里开放这个端口，否则打不开的。<br>添加安全组规则–&gt;“入方向”，“出方向”都要选，协议类型TCP，端口80，授权对象0.0.0.0/0</li>
-<li>把dist目录下的几个文件通过xftp传到 /var/www/vuemusic 目录下</li>
-<li>记得 第二步改完后，nginx最好重启下</li>
-</ol>
-</li>
-</ol>
-
-          
+    index index.html;             // index.
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/07/vue-部署到阿里云/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1267,8 +1351,8 @@ error_page 500 502 503 504 /50x.html;
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/分类1/" itemprop="url" rel="index">
-                    <span itemprop="name">分类1</span>
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
                   </a>
                 </span>
 
@@ -1317,12 +1401,19 @@ error_page 500 502 503 504 /50x.html;
       
         
           
-            <p>后台条件语法：<br>或语法<br>where：{“$or”:[{“a”:”ax”},{“b”:”bx”}]}</p>
-<p>与语法<br>where:{“$and”:[{“a”:”ax”},{“b”:”bx”}]}</p>
-<p>Key    Operation<br>$lt    小于<br>$lte    小于等于<br>$gt    大于<br>$gte    大于等于<br>$ne    不等于<br>$in    包含在数组中<br>$nin    不包含在数组中<br>$exists    这个 Key 有值<br>$select    匹配另一个查询的返回值<br>$dontSelect    排除另一个查询的返回<br>$all    包括所有给定的值<br>$regex    匹配PCRE表达式</p>
-<p>大于等于1000且小于等于3000（示例）<br>where：{“score”:{“$gte”:1000,”$lte”:3000}}</p>
+          后台条件语法：或语法where：{“$or”:[{“a”:”ax”},{“b”:”bx”}]}
+与语法where:{“$and”:[{“a”:”ax”},{“b”:”bx”}]}
+Key    Operation$lt    小于$lte    小于等于$gt    大于$gte    大于等于$ne    不等于$in    包含在数组中$nin    不包含在数组中$exists    这个 Key 有值$select    匹配另一个查询的返回值$dontSelect    排除另一个查询的返回$all    包括所有给定的值$regex    匹配PCRE表达式
+大于等于1000且小于等于3000（示例）where：{“score”:{“$gte”:1000,”$lte”:3000}}
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/02/Bmob-where-语句（MongoDb）/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1411,6 +1502,28 @@ error_page 500 502 503 504 /50x.html;
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1451,9 +1564,15 @@ error_page 500 502 503 504 /50x.html;
       
         
           
-            <p>Bmob 云函数发送邮件到指定邮箱，使用 oMail模块。<br>官方文档更新不及时，以下可使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function onRequest(request, response, modules) &#123;</span><br><span class="line">    //获得发送邮件的对象 </span><br><span class="line">    var mailer = modules.oMail; </span><br><span class="line">    //设置发送服务器信息 </span><br><span class="line">    var smtpTransport = mailer.createTransport(&#123;</span><br><span class="line">      service: &quot;qq&quot;</span><br><span class="line">    , auth: &#123;</span><br><span class="line">        user: &quot;*******@qq.com&quot;,    // qq邮箱</span><br><span class="line">        pass: &quot;*********&quot;          // qq邮箱后台开通SMTP时系统分配的鉴权码</span><br><span class="line">       &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     </span><br><span class="line">    smtpTransport.sendMail(&#123;</span><br><span class="line">        from : &quot;*******@qq.com&quot; ,      // 必须和上面的qq邮箱一致</span><br><span class="line">        to : &quot;********@sina.com&quot; ,     </span><br><span class="line">        subject: &quot;主题&quot; ,</span><br><span class="line">        generateTextFromHTML : true ,</span><br><span class="line">        html : &quot;啊哈哈哈&quot;</span><br><span class="line">    &#125;, function (error, responseback)&#123;     </span><br><span class="line">        smtpTransport.close();</span><br><span class="line">    if(error)&#123;</span><br><span class="line">        //发送失败</span><br><span class="line">         response.send(&quot;发送失败&quot;+error);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        //发送成功</span><br><span class="line">        response.send(&quot;发送成功&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-          
+          Bmob 云函数发送邮件到指定邮箱，使用 oMail模块。官方文档更新不及时，以下可使用1234567891011121314151617181920212223242526272829function onRequest(request, response, modules) &#123;    //获得发送邮件的对象     var mailer = modules.oMail;     //设置发送服务器信息     var smtpTransport = mailer.createTransport(&#123;      service: &quot;qq&quot;    , auth: &#123;        user: &quot;*******@qq.com&quot;,    // qq邮箱        pass: &quot;*********&quot;          // qq邮箱后台开通SMTP时系统分配的鉴权码       &#125;     &#125;);         smtpTransport.sendMail(&#123;     
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/02/Bmob-邮箱模块-发送邮件/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1542,6 +1661,28 @@ error_page 500 502 503 504 /50x.html;
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1582,18 +1723,19 @@ error_page 500 502 503 504 /50x.html;
       
         
           
-            <h3 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h3><p>Express 应用使用回调函数的参数： request 和 response 对象来处理请求和响应的数据。</p>
-<p>app.get(‘/‘, function (req, res) {<br>   // –<br>})</p>
-<h4 id="request-和-response-对象的具体介绍："><a href="#request-和-response-对象的具体介绍：" class="headerlink" title="request 和 response 对象的具体介绍："></a>request 和 response 对象的具体介绍：</h4><h5 id="Request-对象-request-对象表示-HTTP-请求，包含了请求查询字符串，参数，内容，HTTP-头部等属性。常见属性有："><a href="#Request-对象-request-对象表示-HTTP-请求，包含了请求查询字符串，参数，内容，HTTP-头部等属性。常见属性有：" class="headerlink" title="Request 对象 - request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有："></a>Request 对象 - request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有：</h5><p>req.app：当callback为外部文件时，用req.app访问express的实例<br>req.baseUrl：获取路由当前安装的URL路径</p>
-<blockquote>
-<p>req.body / req.cookies：获得「请求主体」/ Cookies<br>req.fresh / req.stale：判断请求是否还「新鲜」<br>req.hostname / req.ip：获取主机名和IP地址<br>req.originalUrl：获取原始请求URL<br>req.params：获取路由的parameters<br>req.path：获取请求路径<br>req.protocol：获取协议类型<br>req.query：获取URL的查询参数串<br>req.route：获取当前匹配的路由<br>req.subdomains：获取子域名<br>req.accepts()：检查可接受的请求的文档类型<br>req.acceptsCharsets / req.acceptsEncodings / req.acceptsLanguages：返回指定字符集的第一个可接受字符编码<br>req.get()：获取指定的HTTP请求头<br>req.is()：判断请求头Content-Type的MIME类型</p>
-</blockquote>
-<h5 id="Response-对象-response-对象表示-HTTP-响应，即在接收到请求时向客户端发送的-HTTP-响应数据。常见属性有："><a href="#Response-对象-response-对象表示-HTTP-响应，即在接收到请求时向客户端发送的-HTTP-响应数据。常见属性有：" class="headerlink" title="Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。常见属性有："></a>Response 对象 - response 对象表示 HTTP 响应，即在接收到请求时向客户端发送的 HTTP 响应数据。常见属性有：</h5><p>res.app：同req.app一样<br>res.append()：追加指定HTTP头<br>res.set()在res.append()后将重置之前设置的头<br>res.cookie(name，value [，option])：设置Cookie<br>opition: domain / expires / httpOnly / maxAge / path / secure / signed<br>res.clearCookie()：清除Cookie<br>res.download()：传送指定路径的文件<br>res.get()：返回指定的HTTP头</p>
-<blockquote>
-<p>res.json()：传送JSON响应<br>res.jsonp()：传送JSONP响应<br>res.location()：只设置响应的Location HTTP头，不设置状态码或者close response<br>res.redirect()：设置响应的Location HTTP头，并且设置状态码302<br>res.render(view,[locals],callback)：渲染一个view，同时向callback传递渲染后的字符串，如果在渲染过程中有错误发生next(err)将会被自动调用。callback将会被传入一个可能发生的错误以及渲染后的页面，这样就不会自动输出了。<br>res.send()：传送HTTP响应<br>res.sendFile(path [，options] [，fn])：传送指定路径的文件 -会自动根据文件extension设定Content-Type<br>res.set()：设置HTTP头，传入object可以一次设置多个头<br>res.status()：设置HTTP状态码<br>res.type()：设置Content-Type的MIME类型</p>
-</blockquote>
+          请求和响应Express 应用使用回调函数的参数： request 和 response 对象来处理请求和响应的数据。
+app.get(‘/‘, function (req, res) {   // –})
+request 和 response 对象的具体介绍：Request 对象 - request 对象表示 HTTP 请求，包含了请求查询字符串，参数，内容，HTTP 头部等属性。常见属性有：req.app：当callback为外部文件时，用req.app访问express的实例req.baseUrl：获取路由当前安装的URL路径
 
-          
+req.body / req.cookies：获得「请求主体」/ Cookiesreq.fresh / req.stale：判断请求是否还「新鲜」req.hostname / req.ip：获取主机名和IP地址req.originalUrl：获取原始请求URLreq.params：获取路由的parametersreq.path：获取请求路径req.protocol：获取协议类型req.query：获取URL的查询参数串req.route：获取当前匹配的路
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/24/Node.js Express 常用/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1682,6 +1824,28 @@ error_page 500 502 503 504 /50x.html;
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -1722,35 +1886,20 @@ error_page 500 502 503 504 /50x.html;
       
         
           
-            <p>开发办法：（只要传入content即可，换行使用\n）<br>如以下代码上传至服务器 qh.leanapp.cn/index.php，则客户端（如微信小程序）使用post时地址为以下即可<br>        小程序端代码如下：<br>        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">wx.request(&#123;</span><br><span class="line">       url: &apos;https://qh.leanapp.cn/index.php&apos;,						</span><br><span class="line">	data: &#123;</span><br><span class="line">           context: &quot;你好啊\n第二行&quot;,</span><br><span class="line">       &#125;,</span><br><span class="line">       method: &apos;POST&apos;,</span><br><span class="line">       header: &#123;</span><br><span class="line">   		&apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;</span><br><span class="line">   	&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<pre><code>服务器端代码如下：
+          开发办法：（只要传入content即可，换行使用\n）如以下代码上传至服务器 qh.leanapp.cn/index.php，则客户端（如微信小程序）使用post时地址为以下即可        小程序端代码如下：        12345678910wx.request(&#123;       url: &apos;https://qh.leanapp.cn/index.php&apos;,							data: &#123;           context: &quot;你好啊\n第二行&quot;,       &#125;,       method: &apos;POST&apos;,       header: &#123;   		&apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;   	&#125;,&#125;
+服务器端代码如下：
 &lt;?php 
     /**
      * 打印接口
-     * function  action_print($partner,$machine_code,$content,$apiKey,$msign)
-     * @param  int $partner     用户ID
-     * @param  string $machine_code 打印机终端号
-     * @param  string $content      打印内容
-     * @param  string $apiKey       API密钥
-     * @param  string $msign       打印机密钥
-     */
-    include(&quot;print.class.php&quot;);
-    $content=$_POST[&quot;context&quot;];
-
-    if ($content != &quot;&quot;) {
-        error_log(&apos;context:&apos;.$content.&quot;\r\n&quot;, 3, &apos;info.log&apos;);
-
-        $print = new Yprint();
-        //$content = &quot;第一行\n第二行\r\n第三行&quot;;
-        $apiKey = &quot;21d9876567jkjhghjk6dbe8626077f56989ae6bbb5c4&quot;;
-        $msign = &apos;kjhgfghjkjhggh&apos;;
-        //打印
-        $print-&gt;action_print(10980, &apos;4027586264&apos;, $content, $apiKey, $msign);
-    }
- ?&gt;
-</code></pre><p>易联云的上传至 leancloud中的yilianyun-print.leanapp.cn<br>因为易联云的api是php的代码，因此要线在leancloud中github一个slim-getting-started的通用模板，然后把易联云的index.php和print.class.php都放到public目录下。<br>然后在cmd命令行中lean deploy上传。在部署的过程中可能会出现部署失败，说获取云函数信息失败，解析失败。没关系。其实已经上传成功了。</p>
-
-          
+     * function  action_print($partner,$m
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/15/易联云打印机/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1836,7 +1985,7 @@ error_page 500 502 503 504 /50x.html;
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
