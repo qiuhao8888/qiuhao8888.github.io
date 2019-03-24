@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="甜甜和康康的爸爸">
 <meta property="og:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T05:20:49.523Z">
+<meta property="og:updated_time" content="2019-03-24T06:27:07.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="uni-app 框架信息">
 <meta name="twitter:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
@@ -450,65 +450,151 @@
 
       
         <p>uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。</p>
-<h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><h3 id="页面文件遵循-Vue-单文件组件-SFC-规范"><a href="#页面文件遵循-Vue-单文件组件-SFC-规范" class="headerlink" title="页面文件遵循 Vue 单文件组件 (SFC) 规范"></a>页面文件遵循 Vue 单文件组件 (SFC) 规范</h3><p>页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含三种类型的顶级语言块 <strong>template、script 和 style</strong></p>
+<h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><h4 id="页面文件遵循-Vue-单文件组件-SFC-规范"><a href="#页面文件遵循-Vue-单文件组件-SFC-规范" class="headerlink" title="页面文件遵循 Vue 单文件组件 (SFC) 规范"></a>页面文件遵循 Vue 单文件组件 (SFC) 规范</h4><p>页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含三种类型的顶级语言块 <strong>template、script 和 style</strong></p>
 <ul>
 <li>每个 .vue 文件最多包含一个 template 块</li>
 <li>每个 .vue 文件最多包含一个 script 块</li>
 <li>一个 .vue 文件可以包含多个 style 标签</li>
 </ul>
-<h3 id="组件标签靠近微信小程序规范"><a href="#组件标签靠近微信小程序规范" class="headerlink" title="组件标签靠近微信小程序规范"></a>组件标签靠近微信小程序规范</h3><ul>
+<h4 id="组件标签靠近微信小程序规范"><a href="#组件标签靠近微信小程序规范" class="headerlink" title="组件标签靠近微信小程序规范"></a>组件标签靠近微信小程序规范</h4><ul>
 <li>uni-app的组件与微信小程序相同，也就是说熟悉微信小程序 wxml 的，在这里沿用 wxml 的写法即可。比如 view，navigator, text等</li>
 </ul>
 <table>
 <thead>
 <tr>
 <th style="text-align:center">属性名</th>
-<th style="text-align:left">类型</th>
-<th style="text-align:right">描述</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">描述</th>
 <th>注解</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">id</td>
-<td style="text-align:left">String</td>
-<td style="text-align:right">组件的唯一标示</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">组件的唯一标示</td>
 <td>保持整个页面唯一</td>
 </tr>
 <tr>
 <td style="text-align:center">class</td>
-<td style="text-align:left">String</td>
-<td style="text-align:right">组件的样式类</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">组件的样式类</td>
 <td>在对应的 css 中定义的样式类</td>
 </tr>
 <tr>
 <td style="text-align:center">style</td>
-<td style="text-align:left">String-组件的内联样式</td>
-<td style="text-align:right">可以动态设置的内联样式</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">组件的内联样式</td>
+<td>可以动态设置的内联样式</td>
 </tr>
 <tr>
 <td style="text-align:center">hidden</td>
-<td style="text-align:left">Boolean-组件是否隐藏</td>
-<td style="text-align:right">所有组件默认是显示的</td>
+<td style="text-align:center">Boolean</td>
+<td style="text-align:center">组件是否隐藏</td>
+<td>所有组件默认是显示的</td>
 </tr>
 <tr>
 <td style="text-align:center">data-*</td>
-<td style="text-align:left">Any    自定义属性</td>
-<td style="text-align:right">组件上触发的事件时，会发送给事件处理函数</td>
+<td style="text-align:center">Any    自定义属性</td>
+<td style="text-align:center">组件上触发的事件时，会发送给事件处理函数</td>
 </tr>
 <tr>
 <td style="text-align:center">@*</td>
-<td style="text-align:left">EventHandler</td>
-<td style="text-align:right">组件的事件</td>
+<td style="text-align:center">EventHandler</td>
+<td style="text-align:center">组件的事件</td>
 <td>详见各组件详细文档，事件绑定参</td>
 </tr>
 </tbody>
 </table>
-<h3 id="接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><a href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可" class="headerlink" title="接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可"></a>接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</h3><ul>
+<h4 id="接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><a href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可" class="headerlink" title="接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可"></a>接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</h4><ul>
 <li>uni-app 对 API 进行了 Promise 封装，如无 success、fail、complete 参数，将以 Promise 返回数据。<br><strong>返回数据的第一个参数是错误对象，第二个参数是返回数据</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 默认方式</span><br><span class="line">uni.request(&#123;</span><br><span class="line">    url: &apos;https://www.example.com/request&apos;,</span><br><span class="line">    success: (res) =&gt; &#123;</span><br><span class="line">        console.log(res.data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// Promise</span><br><span class="line">uni.request(&#123;</span><br><span class="line">        url: &apos;https://www.example.com/request&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(data =&gt; &#123;//data为一个数组，数组第一项为错误信息，第二项为返回数据</span><br><span class="line">        var [error, res]  = data;</span><br><span class="line">        console.log(res.data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><a href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念" class="headerlink" title="数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念"></a>数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</h3>
+<h4 id="数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><a href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念" class="headerlink" title="数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念"></a>数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</h4><h4 id="为了多端兼容，建议-view-中一开始就使用flex布局进行开发。免得以后改的时候后悔…"><a href="#为了多端兼容，建议-view-中一开始就使用flex布局进行开发。免得以后改的时候后悔…" class="headerlink" title="为了多端兼容，建议 view 中一开始就使用flex布局进行开发。免得以后改的时候后悔…"></a>为了多端兼容，建议 view 中一开始就使用flex布局进行开发。免得以后改的时候后悔…</h4><h2 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h2><h3 id="整个-uni-app-应用的生命周期"><a href="#整个-uni-app-应用的生命周期" class="headerlink" title="整个 uni-app 应用的生命周期"></a>整个 uni-app 应用的生命周期</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">onLaunch</td>
+<td style="text-align:center">当uni-app 初始化完成时触发（<strong>全局只触发一次</strong>）</td>
+</tr>
+<tr>
+<td style="text-align:center">onShow</td>
+<td style="text-align:center">当 uni-app 启动，或从后台进入前台显示</td>
+</tr>
+<tr>
+<td style="text-align:center">onHide</td>
+<td style="text-align:center">当 uni-app 从前台进入后台</td>
+</tr>
+<tr>
+<td style="text-align:center">onUniNViewMessage</td>
+<td style="text-align:center">对 nvue 页面发送的数据进行监听</td>
+</tr>
+</tbody>
+</table>
+<h3 id="页面的生命周期"><a href="#页面的生命周期" class="headerlink" title="页面的生命周期"></a>页面的生命周期</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">函数名</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">nLoad</td>
+<td style="text-align:center">监听页面加载，<strong>页面间参数传递在这里</strong>，参数类型为Object</td>
+</tr>
+<tr>
+<td style="text-align:center">onShow</td>
+<td style="text-align:center">监听页面显示</td>
+</tr>
+<tr>
+<td style="text-align:center">onReady</td>
+<td style="text-align:center">监听页面<strong>初次渲染</strong>完成</td>
+</tr>
+<tr>
+<td style="text-align:center">onHide</td>
+<td style="text-align:center">监听页面隐藏</td>
+</tr>
+<tr>
+<td style="text-align:center">onUnload</td>
+<td style="text-align:center">监听页面卸载</td>
+</tr>
+<tr>
+<td style="text-align:center">onPullDownRefresh</td>
+<td style="text-align:center">监听用户下拉动作，一般用于下拉刷新，参考示例</td>
+</tr>
+<tr>
+<td style="text-align:center">onReachBottom</td>
+<td style="text-align:center">页面上拉触底事件的处理函数</td>
+</tr>
+<tr>
+<td style="text-align:center">onTabItemTap</td>
+<td style="text-align:center">点击 tab 时触发，参数为Object</td>
+</tr>
+<tr>
+<td style="text-align:center">onShareAppMessage</td>
+<td style="text-align:center">用户点击右上角分享</td>
+</tr>
+</tbody>
+</table>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><p><strong>uni-app 路由全部交给 框架 统一管理，在pages.json 里配置每个路由页面的路径及样式即可，跟微信小程序一样。切记，不支持 Vue Router 的路由</strong> </p>
+<h4 id="路由跳转（跟微信小程序的方式一样）"><a href="#路由跳转（跟微信小程序的方式一样）" class="headerlink" title="路由跳转（跟微信小程序的方式一样）"></a>路由跳转（跟微信小程序的方式一样）</h4><ul>
+<li>使用 navigator 组件跳转<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url=&quot;navigate/navigate?title=navigate&quot; hover-class=&quot;navigator-hover&quot;&gt;</span><br><span class="line">    &lt;button type=&quot;default&quot;&gt;跳转到新页面&lt;/button&gt;</span><br><span class="line">&lt;/navigator&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="调用API跳转"><a href="#调用API跳转" class="headerlink" title="调用API跳转"></a>调用API跳转</h4><ul>
+<li>uni.navigateTo(OBJECT)<br>保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面</li>
+<li>uni.redirectTo(OBJECT)<br>关闭当前页面，跳转到应用内的某个页面</li>
+<li>uni.reLaunch(OBJECT)<br>关闭所有页面，打开到应用内的某个页面</li>
+<li>uni.switchTab(OBJECT)<br>跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</li>
+<li>uni.navigateBack(OBJECT)<br>关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层。</li>
+</ul>
+
       
     </div>
     
@@ -732,7 +818,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number">1.1.</span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组件标签靠近微信小程序规范"><span class="nav-number">1.2.</span> <span class="nav-text">组件标签靠近微信小程序规范</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><span class="nav-number">1.3.</span> <span class="nav-text">接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><span class="nav-number">1.4.</span> <span class="nav-text">数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number">1.0.1.</span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件标签靠近微信小程序规范"><span class="nav-number">1.0.2.</span> <span class="nav-text">组件标签靠近微信小程序规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><span class="nav-number">1.0.3.</span> <span class="nav-text">接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><span class="nav-number">1.0.4.</span> <span class="nav-text">数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为了多端兼容，建议-view-中一开始就使用flex布局进行开发。免得以后改的时候后悔…"><span class="nav-number">1.0.5.</span> <span class="nav-text">为了多端兼容，建议 view 中一开始就使用flex布局进行开发。免得以后改的时候后悔…</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整个-uni-app-应用的生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">整个 uni-app 应用的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面的生命周期"><span class="nav-number">2.2.</span> <span class="nav-text">页面的生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">3.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由跳转（跟微信小程序的方式一样）"><span class="nav-number">3.0.1.</span> <span class="nav-text">路由跳转（跟微信小程序的方式一样）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用API跳转"><span class="nav-number">3.0.2.</span> <span class="nav-text">调用API跳转</span></a></li></ol></li></div>
             
 
           </div>
