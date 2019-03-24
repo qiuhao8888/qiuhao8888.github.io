@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="uni-app,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="data 属性data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。1234567891011//正确用法，使用函数返回对象data() &amp;#123;    return &amp;#123;        title: &amp;apos;Hello&amp;apos;    &amp;#125;&amp;#125;//错误写法，会导致再次打开页面时，显示上次数据data:">
+<meta name="keywords" content="uni-app">
+<meta property="og:type" content="article">
+<meta property="og:title" content="uni-app 注意事项">
+<meta property="og:url" content="http://ttkk.live/2019/03/24/uni-app-注意事项/index.html">
+<meta property="og:site_name" content="甜甜和康康的爸爸">
+<meta property="og:description" content="data 属性data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。1234567891011//正确用法，使用函数返回对象data() &amp;#123;    return &amp;#123;        title: &amp;apos;Hello&amp;apos;    &amp;#125;&amp;#125;//错误写法，会导致再次打开页面时，显示上次数据data:">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-24T13:17:12.493Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="uni-app 注意事项">
+<meta name="twitter:description" content="data 属性data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。1234567891011//正确用法，使用函数返回对象data() &amp;#123;    return &amp;#123;        title: &amp;apos;Hello&amp;apos;    &amp;#125;&amp;#125;//错误写法，会导致再次打开页面时，显示上次数据data:">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://ttkk.live/2019/03/24/uni-app-注意事项/">
+
+
+
+
+
+  <title>uni-app 注意事项 | 甜甜和康康的爸爸</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">甜甜和康康的爸爸</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">金猴奋起千钧棒，玉宇澄清万里埃</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-标签">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-文章">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            文章
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-公益">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ttkk.live/2019/03/24/uni-app-注意事项/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JayJay">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/image/background.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="甜甜和康康的爸爸">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">uni-app 注意事项</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-24T15:38:15+08:00">
+                2019-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/少壮不努力，长大做IT/" itemprop="url" rel="index">
+                    <span itemprop="name">少壮不努力，长大做IT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/03/24/uni-app-注意事项/" class="leancloud_visitors" data-flag-title="uni-app 注意事项">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="data-属性"><a href="#data-属性" class="headerlink" title="data 属性"></a>data 属性</h2><p>data 必须声明为<strong>返回</strong>一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//正确用法，使用函数返回对象</span><br><span class="line">data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">        title: &apos;Hello&apos;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//错误写法，会导致再次打开页面时，显示上次数据</span><br><span class="line">data: &#123;</span><br><span class="line">    title: &apos;Hello&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="computed-属性"><a href="#computed-属性" class="headerlink" title="computed 属性"></a>computed 属性</h2><p>这是 vue 的计算属性。computed 和 method 其实都可以完成相同的任务。区别在于， <strong>computed 会把计算结果放在缓存里</strong>，调用compute时只有当依赖变化时才会重新计算，否则直接读取缓存；而 <strong>method 每一次调用都会重新计算</strong>，不管依赖有没有变。<br>computed 属性和 watch 属性可以看场合使用。</p>
+<h2 id="全局变量"><a href="#全局变量" class="headerlink" title="全局变量"></a>全局变量</h2><h4 id="共用模块"><a href="#共用模块" class="headerlink" title="共用模块"></a>共用模块</h4><p>在 uni-app 项目根目录下创建 common 目录，然后在 common 目录下新建 <strong>**</strong>.js 用于定义公用的方法。然后在需要的文件中如 pages/index/index.vue 中引用该模块<br><code>import **** from &#39;../../common/******.js&#39;</code></p>
+<h4 id="globalData"><a href="#globalData" class="headerlink" title="globalData"></a>globalData</h4><p>与小程序相似，直接读写 App 对象上的 globalData 属性<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getApp().globalData.test = &apos;test&apos;  </span><br><span class="line">console.log(getApp().globalData.test)</span><br></pre></td></tr></table></figure></p>
+<h4 id="挂载-Vue-prototype"><a href="#挂载-Vue-prototype" class="headerlink" title="挂载 Vue.prototype"></a>挂载 Vue.prototype</h4><p>在 main.js 中直接挂载属性/方法到  Vue.prototype 上，其他页面使用时世界用 this.** 即可引用</p>
+<h4 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h4><p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式</p>
+<h2 id="列表渲染"><a href="#列表渲染" class="headerlink" title="列表渲染"></a>列表渲染</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">**嵌套列表渲染，必须指定不同的索引**！需要填写 :key=&quot;xx&quot;。且嵌套时，item，index不能相同</span><br><span class="line">&lt;div v-for=&quot;(item, index) in items&quot; :key=&quot;item.id&quot;&gt;</span><br><span class="line">  &lt;!-- 内容 --&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="事件处理器"><a href="#事件处理器" class="headerlink" title="事件处理器"></a>事件处理器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">// 事件映射表，左侧为 WEB 事件，右侧为 ``uni-app`` 对应事件</span><br><span class="line">&#123;</span><br><span class="line">    click: &apos;tap&apos;,</span><br><span class="line">    touchstart: &apos;touchstart&apos;,</span><br><span class="line">    touchmove: &apos;touchmove&apos;,</span><br><span class="line">    touchcancel: &apos;touchcancel&apos;,</span><br><span class="line">    touchend: &apos;touchend&apos;,</span><br><span class="line">    tap: &apos;tap&apos;,</span><br><span class="line">    longtap: &apos;longtap&apos;,</span><br><span class="line">    input: &apos;input&apos;,</span><br><span class="line">    change: &apos;change&apos;,</span><br><span class="line">    submit: &apos;submit&apos;,</span><br><span class="line">    blur: &apos;blur&apos;,</span><br><span class="line">    focus: &apos;focus&apos;,</span><br><span class="line">    reset: &apos;reset&apos;,</span><br><span class="line">    confirm: &apos;confirm&apos;,</span><br><span class="line">    columnchange: &apos;columnchange&apos;,</span><br><span class="line">    linechange: &apos;linechange&apos;,</span><br><span class="line">    error: &apos;error&apos;,</span><br><span class="line">    scrolltoupper: &apos;scrolltoupper&apos;,</span><br><span class="line">    scrolltolower: &apos;scrolltolower&apos;,</span><br><span class="line">    scroll: &apos;scroll&apos;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">事件修饰符</span><br><span class="line">.stop：各平台均支持， 使用时会阻止事件冒泡，在非 H5 端同时也会阻止事件的默认行为</span><br><span class="line">.prevent 仅在 H5 平台支持</span><br><span class="line">.self：仅在 H5 平台支持</span><br><span class="line">.once：仅在 H5 平台支持</span><br><span class="line">.capture：仅在 H5 平台支持</span><br><span class="line">.passive：仅在 H5 平台支持</span><br><span class="line"></span><br><span class="line">&lt;button v-on:click=&quot;addMethod&quot;&gt;lalalal&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="表单输入绑定"><a href="#表单输入绑定" class="headerlink" title="表单输入绑定"></a>表单输入绑定</h2><p>使用 v-model 指令在表单 input、textarea 及 select 元素上创建<strong>双向数据绑定</strong><br>v-model 在内部使用不同的属性为不同的输入元素并抛出不同的事件：</p>
+<ul>
+<li>text 和 textarea 元素使用 value 属性和 input 事件；</li>
+<li>checkbox 和 radio 使用 checked 属性和 change 事件；</li>
+<li>select 字段将 value 作为 prop 并将 change 作为事件。</li>
+</ul>
+<h2 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h2><h4 id="lazy"><a href="#lazy" class="headerlink" title=".lazy"></a>.lazy</h4><p>lazy 修饰符，把input事件转变为使用 change 事件进行同步<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 在“change”时而非“input”时更新 --&gt;</span><br><span class="line">&lt;input v-model.lazy=&quot;msg&quot; &gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="number"><a href="#number" class="headerlink" title=".number"></a>.number</h4><p>可自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model.number=&quot;age&quot; type=&quot;number&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="trim"><a href="#trim" class="headerlink" title=".trim"></a>.trim</h4><p>自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;input v-model.trim=&quot;msg&quot;&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="全局组件"><a href="#全局组件" class="headerlink" title="全局组件"></a>全局组件</h2><p>uni-app 支持配置<strong>全局组件，需在 main.js 里进行全局注册</strong>，注册后就可在<strong>所有页面</strong>里使用该组件。<br>注意：Vue.component 的第一个参数必须是静态的字符串。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">示例</span><br><span class="line">main.js 里进行全局注册</span><br><span class="line"></span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import pageHead from &apos;./components/page-head.vue&apos;</span><br><span class="line">Vue.component(&apos;page-head&apos;,pageHead)</span><br><span class="line"></span><br><span class="line">index.vue 里可直接使用组件</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;view&gt;</span><br><span class="line">    &lt;page-head&gt;&lt;/page-head&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="如何设置全局的数据和全局的方法"><a href="#如何设置全局的数据和全局的方法" class="headerlink" title="如何设置全局的数据和全局的方法"></a>如何设置全局的数据和全局的方法</h2><p>uni-app 内置了 vuex ，在app里的使用，可参考hello-uniapp store/index.js。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//store.js</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Vuex from &apos;vuex&apos;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">const store = new Vuex.Store(&#123;</span><br><span class="line">    state: &#123;...&#125;,</span><br><span class="line">    mutations: &#123;...&#125;,</span><br><span class="line">    actions: &#123;...&#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export default store</span><br><span class="line"></span><br><span class="line">//main.js</span><br><span class="line">...</span><br><span class="line">import store from &apos;./store&apos;</span><br><span class="line">Vue.prototype.$store = store</span><br><span class="line">const app = new Vue(&#123;</span><br><span class="line">    store,...</span><br><span class="line">&#125;)</span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">//test.vue 使用时：</span><br><span class="line">import &#123;mapState, mapMutations&#125; from &apos;vuex&apos;</span><br></pre></td></tr></table></figure></p>
+<h2 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h2><p>uni-app 在 App 端或小程序端运行时，从架构上分为逻辑层和视图层两个部分。逻辑层负责储存数据和执行业务逻辑，视图层负责页面渲染。<br>目前，视图层以 WebView 作为渲染载体进行渲染，以 evaluateJavascript 的方式在视图层和逻辑层进行数据通讯，evaluateJavascript 通讯是异步操作，所以数据到达视图层不是实时的。<br>数据通讯时，框架会将要传递的数据转换为字符串进行传递，然后将字符串接成一份 JS 脚本，再通过执行 JS 脚本的形式传递到逻辑层和视图层，此操作意味着数据的大小会影响性能。</p>
+<p>优化建议</p>
+<ul>
+<li><p>优化数据更新<br>在 uni-app 中，定义在 data 里面的数据每次变化时都会通知视图层重新渲染页面。 所以如果不是视图所需要的变量，可以不定义在 data 中，可在外部定义变量或直接挂载在vue实例上，以避免造成资源浪费。</p>
+</li>
+<li><p>减少一次性渲染的节点数量<br>页面初始化时，逻辑层如果一次性向视图层传递很大的数据，使视图层一次性渲染大量节点，可能造成通讯变慢、页面切换卡顿，所以建议以局部更新页面的方式渲染页面。如：服务端返回100条数据，可进行分批加载，一次加载20条，500ms 后进行下一次加载。</p>
+</li>
+<li><p>减少节点嵌套层级<br>深层嵌套的节点在页面初始化构建时往往需要更多的内存占用，并且在遍历节点时也会更慢些，所以建议减少深层的节点嵌套。</p>
+</li>
+<li><p>避免视图层和逻辑层频繁进行通讯<br>减少 onPageScroll 的使用，onPageScroll 进行监听时，视图层会频繁的向逻辑层发送数据；<br>减少 scroll-view 组件的 scroll 事件监听，当监听 scroll-view 的滚动事件时，视图层会频繁的向逻辑层发送数据；<br>监听 scroll-view 组件的滚动事件时，不要实时的改变 scroll-top/scroll-left 属性，因为监听滚动时，视图层向逻辑层通讯，改变 scroll-top/scroll-left 时，逻辑层又向视图层通讯，这样就可能造成通讯卡顿。</p>
+</li>
+<li><p>避免使用大图<br>页面中若大量使用大图资源，会造成页面切换的卡顿，导致系统内存升高。</p>
+</li>
+<li><p>优化页面切换动画<br>页面初始化时若存在大量图片渲染和大量数据通讯，很有可能造成页面切换卡顿、掉帧。建议延时100ms~300ms渲染图片，分批进行数据通讯，以减少一次性渲染的节点数量。</p>
+</li>
+<li><p>优化样式渲染速度<br>将样式写在 App.vue 里，可以加速页面样式渲染速度。App.vue 里面的样式是全局样式，每次新开页面会优先加载 App.vue 里面的样式，然后加载普通 vue 页面的样式。</p>
+</li>
+<li><p>使用 nvue 代替 vue</p>
+</li>
+</ul>
+<h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p>在微信小程序端，uni-app 将数据绑定功能委托给Vue，开发者需按Vue 2.0的写法实现数据绑定，不支持微信小程序的数据绑定写法，故如下写法不支持：<br><code>&lt;view id=&quot;item-&quot;&gt;&lt;/view&gt;</code><br>需修改为：<br><code>&lt;view v-bind:id=&quot;&#39;item-&#39; + id &quot;&gt;&lt;/view&gt;</code></p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><h4 id="Tag代码块"><a href="#Tag代码块" class="headerlink" title="Tag代码块"></a>Tag代码块</h4><p>uButton<br>uCheckbox<br>uGrid<br>uList<br>uListMedia<br>uRadio<br>uSwiper</p>
+<h4 id="JS代码块"><a href="#JS代码块" class="headerlink" title="JS代码块"></a>JS代码块</h4><p>uRequest<br>uGetLocation<br>uShowToast<br>uShowLoading<br>uHideLoading<br>uShowModal<br>uShowActionSheet<br>uNavigateTo<br>uNavigateBack<br>uRedirectTo<br>uStartPullDownRefresh<br>uStopPullDownRefresh<br>uLogin<br>uShare<br>uPay</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/image/wechat.jpg" alt="JayJay WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/uni-app/" rel="tag"># uni-app</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/24/uni-app-框架信息/" rel="next" title="uni-app 框架信息">
+                <i class="fa fa-chevron-left"></i> uni-app 框架信息
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/image/background.jpg" alt="JayJay">
+            
+              <p class="site-author-name" itemprop="name">JayJay</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/qiuhao8888" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:qiuhao8888@sina.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://plus.google.com/qiuhao8888" target="_blank" title="Google">
+                      
+                        <i class="fa fa-fw fa-google"></i>Google</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://instagram.com/qiuhao8888" target="_blank" title="Instagram">
+                      
+                        <i class="fa fa-fw fa-instagram"></i>Instagram</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-属性"><span class="nav-number">1.</span> <span class="nav-text">data 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed-属性"><span class="nav-number">2.</span> <span class="nav-text">computed 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量"><span class="nav-number">3.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共用模块"><span class="nav-number">3.0.1.</span> <span class="nav-text">共用模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globalData"><span class="nav-number">3.0.2.</span> <span class="nav-text">globalData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载-Vue-prototype"><span class="nav-number">3.0.3.</span> <span class="nav-text">挂载 Vue.prototype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex"><span class="nav-number">3.0.4.</span> <span class="nav-text">Vuex</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#列表渲染"><span class="nav-number">4.</span> <span class="nav-text">列表渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理器"><span class="nav-number">5.</span> <span class="nav-text">事件处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单输入绑定"><span class="nav-number">6.</span> <span class="nav-text">表单输入绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">7.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lazy"><span class="nav-number">7.0.1.</span> <span class="nav-text">.lazy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#number"><span class="nav-number">7.0.2.</span> <span class="nav-text">.number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trim"><span class="nav-number">7.0.3.</span> <span class="nav-text">.trim</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局组件"><span class="nav-number">8.</span> <span class="nav-text">全局组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置全局的数据和全局的方法"><span class="nav-number">9.</span> <span class="nav-text">如何设置全局的数据和全局的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">10.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">11.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">12.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tag代码块"><span class="nav-number">12.0.1.</span> <span class="nav-text">Tag代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS代码块"><span class="nav-number">12.0.2.</span> <span class="nav-text">JS代码块</span></a></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JayJay</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("NKskJNdESmEDlE8QcMBal8x3-gzGzoHsz", "nPbgo2FiKlMRMUqnx6R3ITba");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
