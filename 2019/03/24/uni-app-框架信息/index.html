@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="甜甜和康康的爸爸">
 <meta property="og:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T06:27:07.374Z">
+<meta property="og:updated_time" content="2019-03-24T06:34:50.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="uni-app 框架信息">
 <meta name="twitter:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
@@ -588,12 +588,54 @@
 </li>
 </ul>
 <h4 id="调用API跳转"><a href="#调用API跳转" class="headerlink" title="调用API跳转"></a>调用API跳转</h4><ul>
-<li>uni.navigateTo(OBJECT)<br>保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面</li>
-<li>uni.redirectTo(OBJECT)<br>关闭当前页面，跳转到应用内的某个页面</li>
-<li>uni.reLaunch(OBJECT)<br>关闭所有页面，打开到应用内的某个页面</li>
-<li>uni.switchTab(OBJECT)<br>跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</li>
-<li>uni.navigateBack(OBJECT)<br>关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层。</li>
+<li><strong>uni.navigateTo(OBJECT)</strong><br>保留当前页面，跳转到应用内的某个页面，使用uni.navigateBack可以返回到原页面</li>
+<li><strong>uni.redirectTo(OBJECT)</strong><br>关闭当前页面，跳转到应用内的某个页面</li>
+<li><strong>uni.reLaunch(OBJECT)</strong><br>关闭所有页面，打开到应用内的某个页面</li>
+<li><strong>uni.switchTab(OBJECT)</strong><br>跳转到 tabBar 页面，并关闭其他所有非 tabBar 页面</li>
+<li><strong>uni.navigateBack(OBJECT)</strong><br>关闭当前页面，返回上一页面或多级页面。可通过 getCurrentPages() 获取当前的页面栈，决定需要返回几层。</li>
 </ul>
+<h2 id="页面栈"><a href="#页面栈" class="headerlink" title="页面栈"></a>页面栈</h2><p>框架以<strong>栈</strong>的形式管理当前所有页面， 当发生路由切换的时候，页面栈的表现如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">路由方式</th>
+<th style="text-align:center">页面栈表现</th>
+<th style="text-align:center">触发时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">初始化</td>
+<td style="text-align:center">新页面入栈</td>
+<td style="text-align:center">uni-app 打开的第一个页面</td>
+</tr>
+<tr>
+<td style="text-align:center">打开新页面</td>
+<td style="text-align:center">新页面入栈</td>
+<td style="text-align:center">调用 API   uni.navigateTo  、使用组件  <navigator open-type="navigateTo"></navigator></td>
+</tr>
+<tr>
+<td style="text-align:center">页面重定向</td>
+<td style="text-align:center">当前页面出栈，新页面入栈</td>
+<td style="text-align:center">调用 API   uni.redirectTo  、使用组件  <navigator open-type="redirectTo"></navigator></td>
+</tr>
+<tr>
+<td style="text-align:center">页面返回</td>
+<td style="text-align:center">页面不断出栈，直到目标返回页</td>
+<td style="text-align:center">调用 API  uni.navigateBack   、使用组件 <navigator open-type="navigateBack"> 、用户按左上角返回按钮、安卓用户点击物理back按键</navigator></td>
+</tr>
+<tr>
+<td style="text-align:center">Tab 切换</td>
+<td style="text-align:center">页面全部出栈，只留下新的 Tab 页面</td>
+<td style="text-align:center">调用 API  uni.switchTab  、使用组件  <navigator open-type="switchTab">  、用户切换 Tab</navigator></td>
+</tr>
+<tr>
+<td style="text-align:center">重加载</td>
+<td style="text-align:center">页面全部出栈，只留下新的页面</td>
+<td style="text-align:center">调用 API  uni.reLaunch  、使用组件  <navigator open-type="reLaunch"></navigator></td>
+</tr>
+</tbody>
+</table>
 
       
     </div>
@@ -818,7 +860,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number">1.0.1.</span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件标签靠近微信小程序规范"><span class="nav-number">1.0.2.</span> <span class="nav-text">组件标签靠近微信小程序规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><span class="nav-number">1.0.3.</span> <span class="nav-text">接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><span class="nav-number">1.0.4.</span> <span class="nav-text">数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为了多端兼容，建议-view-中一开始就使用flex布局进行开发。免得以后改的时候后悔…"><span class="nav-number">1.0.5.</span> <span class="nav-text">为了多端兼容，建议 view 中一开始就使用flex布局进行开发。免得以后改的时候后悔…</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整个-uni-app-应用的生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">整个 uni-app 应用的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面的生命周期"><span class="nav-number">2.2.</span> <span class="nav-text">页面的生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">3.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由跳转（跟微信小程序的方式一样）"><span class="nav-number">3.0.1.</span> <span class="nav-text">路由跳转（跟微信小程序的方式一样）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用API跳转"><span class="nav-number">3.0.2.</span> <span class="nav-text">调用API跳转</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number">1.0.1.</span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件标签靠近微信小程序规范"><span class="nav-number">1.0.2.</span> <span class="nav-text">组件标签靠近微信小程序规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接口（JS-API）参考了微信小程序，将前缀-wx-替换为-uni-即可"><span class="nav-number">1.0.3.</span> <span class="nav-text">接口（JS API）参考了微信小程序，将前缀 wx 替换为 uni 即可</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据绑定-及-事件处理参考了-Vue-js-规范，但又参考了小程序页面的-生命周期-概念"><span class="nav-number">1.0.4.</span> <span class="nav-text">数据绑定 及 事件处理参考了 Vue.js 规范，但又参考了小程序页面的 生命周期 概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为了多端兼容，建议-view-中一开始就使用flex布局进行开发。免得以后改的时候后悔…"><span class="nav-number">1.0.5.</span> <span class="nav-text">为了多端兼容，建议 view 中一开始就使用flex布局进行开发。免得以后改的时候后悔…</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#生命周期"><span class="nav-number">2.</span> <span class="nav-text">生命周期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整个-uni-app-应用的生命周期"><span class="nav-number">2.1.</span> <span class="nav-text">整个 uni-app 应用的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#页面的生命周期"><span class="nav-number">2.2.</span> <span class="nav-text">页面的生命周期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由"><span class="nav-number">3.</span> <span class="nav-text">路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#路由跳转（跟微信小程序的方式一样）"><span class="nav-number">3.0.1.</span> <span class="nav-text">路由跳转（跟微信小程序的方式一样）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用API跳转"><span class="nav-number">3.0.2.</span> <span class="nav-text">调用API跳转</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#页面栈"><span class="nav-number">4.</span> <span class="nav-text">页面栈</span></a></li></div>
             
 
           </div>
