@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="甜甜和康康的爸爸">
 <meta property="og:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T04:38:09.495Z">
+<meta property="og:updated_time" content="2019-03-24T04:51:28.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="uni-app 框架信息">
 <meta name="twitter:description" content="uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含">
@@ -450,17 +450,21 @@
 
       
         <p>uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。</p>
-<h3 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h3><h2 id="页面文件遵循-Vue-单文件组件-SFC-规范"><a href="#页面文件遵循-Vue-单文件组件-SFC-规范" class="headerlink" title="页面文件遵循 Vue 单文件组件 (SFC) 规范"></a>页面文件遵循 Vue 单文件组件 (SFC) 规范</h2><p>页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含三种类型的顶级语言块 <strong><template>、<script> 和 <style></strong></p>
+<h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><h3 id="页面文件遵循-Vue-单文件组件-SFC-规范"><a href="#页面文件遵循-Vue-单文件组件-SFC-规范" class="headerlink" title="页面文件遵循 Vue 单文件组件 (SFC) 规范"></a>页面文件遵循 Vue 单文件组件 (SFC) 规范</h3><p>页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含三种类型的顶级语言块 <template>、<script> 和 <style></p>
 <ul>
 <li>每个 .vue 文件最多包含一个 <template> 块</li>
 <li>每个 .vue 文件最多包含一个 <script> 块</li>
 <li>一个 .vue 文件可以包含多个 <style> 标签</li>
 </ul>
-<h2 id="组件标签靠近微信小程序规范"><a href="#组件标签靠近微信小程序规范" class="headerlink" title="组件标签靠近微信小程序规范"></a>组件标签靠近微信小程序规范</h2><ul>
+<h3 id="组件标签靠近微信小程序规范"><a href="#组件标签靠近微信小程序规范" class="headerlink" title="组件标签靠近微信小程序规范"></a>组件标签靠近微信小程序规范</h3><ul>
 <li>uni-app的组件与微信小程序相同，也就是说熟悉微信小程序 wxml 的，在这里沿用 wxml 的写法即可。比如 view，navigator, text等</li>
 </ul>
 <p>|属性名|类型|描述|注解|<br>|:-id|:-String|:-组件的唯一标示|:-保持整个页面唯一|<br>|:-class|:-String|:-组件的样式类|:-在对应的 css 中定义的样式类|<br>|:-style|:-String|:-组件的内联样式|:-可以动态设置的内联样式|<br>|:-hidden|:-Boolean|:-组件是否隐藏|:-所有组件默认是显示的|<br>|:-data-<em>|:-Any    自定义属性|:-组件上触发的事件时，会发送给事件处理函数|<br>|:-@</em>|:-EventHandler|:-组件的事件|:-详见各组件详细文档，事件绑定参|</p>
-</script></template></strong></p>
+<h3 id="接口能力（JS-API）类似微信小程序，将前缀-wx-替换为-uni-即可"><a href="#接口能力（JS-API）类似微信小程序，将前缀-wx-替换为-uni-即可" class="headerlink" title="接口能力（JS API）类似微信小程序，将前缀 wx 替换为 uni 即可"></a>接口能力（JS API）类似微信小程序，将前缀 wx 替换为 uni 即可</h3><ul>
+<li>uni-app 对 API 进行了 Promise 封装，如无 success、fail、complete 参数，将以 Promise 返回数据。<br><strong>返回数据的第一个参数是错误对象，第二个参数是返回数据</strong><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// 默认方式</span><br><span class="line">uni.request(&#123;</span><br><span class="line">    url: &apos;https://www.example.com/request&apos;,</span><br><span class="line">    success: (res) =&gt; &#123;</span><br><span class="line">        console.log(res.data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">// Promise</span><br><span class="line">uni.request(&#123;</span><br><span class="line">        url: &apos;https://www.example.com/request&apos;</span><br><span class="line">    &#125;)</span><br><span class="line">    .then(data =&gt; &#123;//data为一个数组，数组第一项为错误信息，第二项为返回数据</span><br><span class="line">        var [error, res]  = data;</span><br><span class="line">        console.log(res.data);</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</script></template></p>
       
     </div>
     
@@ -684,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number"></span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#开发规范"><span class="nav-number">1.</span> <span class="nav-text">开发规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面文件遵循-Vue-单文件组件-SFC-规范"><span class="nav-number">1.1.</span> <span class="nav-text">页面文件遵循 Vue 单文件组件 (SFC) 规范</span></a></li></ol></li></ol></div>
             
 
           </div>
