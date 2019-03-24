@@ -453,14 +453,14 @@
           uni-app 整合了 Vue.js、mpvue 等前端开源框架。同时，为保证微信小程序兼容，uni-app 还借鉴了微信小程序的组件规范。所以，uni-app 自成一脉，之前很多知识点需要重新梳理和归档。记性越来越差，真不知道哪一天就忘了自己。
 开发规范页面文件遵循 Vue 单文件组件 (SFC) 规范页面文件为.vue后缀的文件。 .vue 文件是一个自定义的文件类型，每个 .vue 文件包含三种类型的顶级语言块 template、script 和 style
 
-每个 .vue 文件最多包含一个  块
-每个 .vue 文件最多包含一个  块
-一个 .vue 文件可以包含多个  标签
+每个 .vue 文件最多包含一个 template 块
+每个 .vue 文件最多包含一个 script 块
+一个 .vue 文件可以包含多个 style 标签
 
 组件标签靠近微信小程序规范
 uni-app的组件与微信小程序相同，也就是说熟悉微信小程序 wxml 的，在这里沿用 wxml 的写法即可。比如 view，navigator, text等
 
-|属性名|类型|描述|注解||:-id|:-String|:-组件的唯一标示|:-保持整个页面唯一||:-class|:-String|:-组件的样式类|:-在对应的 css 中定义的样式类||:-style|:-
+|属性名|类型|描述|注解||:-id|:-String|:-组件的唯一标示|:-保持整个页面唯一||:-class|:-String|:-组件的样式类|:-在对应的 css 
           ...
           <!--noindex-->
           <div class="post-button text-center">
