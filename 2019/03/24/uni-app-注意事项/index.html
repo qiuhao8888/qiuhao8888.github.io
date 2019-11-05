@@ -131,7 +131,7 @@
 <meta property="og:site_name" content="甜甜和康康的爸爸">
 <meta property="og:description" content="data 属性data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。1234567891011//正确用法，使用函数返回对象data() &amp;#123;    return &amp;#123;        title: &amp;apos;Hello&amp;apos;    &amp;#125;&amp;#125;//错误写法，会导致再次打开页面时，显示上次数据data:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-24T13:17:12.493Z">
+<meta property="og:updated_time" content="2019-03-30T03:01:15.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="uni-app 注意事项">
 <meta name="twitter:description" content="data 属性data 必须声明为返回一个初始数据对象的函数；否则页面关闭时，数据不会自动销毁，再次打开该页面时，会显示上次数据。1234567891011//正确用法，使用函数返回对象data() &amp;#123;    return &amp;#123;        title: &amp;apos;Hello&amp;apos;    &amp;#125;&amp;#125;//错误写法，会导致再次打开页面时，显示上次数据data:">
@@ -459,6 +459,7 @@
 <h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><p>在微信小程序端，uni-app 将数据绑定功能委托给Vue，开发者需按Vue 2.0的写法实现数据绑定，不支持微信小程序的数据绑定写法，故如下写法不支持：<br><code>&lt;view id=&quot;item-&quot;&gt;&lt;/view&gt;</code><br>需修改为：<br><code>&lt;view v-bind:id=&quot;&#39;item-&#39; + id &quot;&gt;&lt;/view&gt;</code></p>
 <h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><h4 id="Tag代码块"><a href="#Tag代码块" class="headerlink" title="Tag代码块"></a>Tag代码块</h4><p>uButton<br>uCheckbox<br>uGrid<br>uList<br>uListMedia<br>uRadio<br>uSwiper</p>
 <h4 id="JS代码块"><a href="#JS代码块" class="headerlink" title="JS代码块"></a>JS代码块</h4><p>uRequest<br>uGetLocation<br>uShowToast<br>uShowLoading<br>uHideLoading<br>uShowModal<br>uShowActionSheet<br>uNavigateTo<br>uNavigateBack<br>uRedirectTo<br>uStartPullDownRefresh<br>uStopPullDownRefresh<br>uLogin<br>uShare<br>uPay</p>
+<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>bmob.js 中<br><code>var _ = require(&#39;underscore.js&#39;);</code><br>改为<br><code>var _ = require(&#39;./underscore.js&#39;);</code><br>因为 ./  才代表当前路径</p>
 
       
     </div>
@@ -522,6 +523,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/05/联盟链/" rel="prev" title="联盟链">
+                联盟链 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -600,7 +605,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -622,7 +627,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -683,7 +688,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-属性"><span class="nav-number">1.</span> <span class="nav-text">data 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed-属性"><span class="nav-number">2.</span> <span class="nav-text">computed 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量"><span class="nav-number">3.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共用模块"><span class="nav-number">3.0.1.</span> <span class="nav-text">共用模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globalData"><span class="nav-number">3.0.2.</span> <span class="nav-text">globalData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载-Vue-prototype"><span class="nav-number">3.0.3.</span> <span class="nav-text">挂载 Vue.prototype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex"><span class="nav-number">3.0.4.</span> <span class="nav-text">Vuex</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#列表渲染"><span class="nav-number">4.</span> <span class="nav-text">列表渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理器"><span class="nav-number">5.</span> <span class="nav-text">事件处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单输入绑定"><span class="nav-number">6.</span> <span class="nav-text">表单输入绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">7.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lazy"><span class="nav-number">7.0.1.</span> <span class="nav-text">.lazy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#number"><span class="nav-number">7.0.2.</span> <span class="nav-text">.number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trim"><span class="nav-number">7.0.3.</span> <span class="nav-text">.trim</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局组件"><span class="nav-number">8.</span> <span class="nav-text">全局组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置全局的数据和全局的方法"><span class="nav-number">9.</span> <span class="nav-text">如何设置全局的数据和全局的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">10.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">11.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">12.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tag代码块"><span class="nav-number">12.0.1.</span> <span class="nav-text">Tag代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS代码块"><span class="nav-number">12.0.2.</span> <span class="nav-text">JS代码块</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-属性"><span class="nav-number">1.</span> <span class="nav-text">data 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computed-属性"><span class="nav-number">2.</span> <span class="nav-text">computed 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局变量"><span class="nav-number">3.</span> <span class="nav-text">全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#共用模块"><span class="nav-number">3.0.1.</span> <span class="nav-text">共用模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#globalData"><span class="nav-number">3.0.2.</span> <span class="nav-text">globalData</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#挂载-Vue-prototype"><span class="nav-number">3.0.3.</span> <span class="nav-text">挂载 Vue.prototype</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vuex"><span class="nav-number">3.0.4.</span> <span class="nav-text">Vuex</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#列表渲染"><span class="nav-number">4.</span> <span class="nav-text">列表渲染</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件处理器"><span class="nav-number">5.</span> <span class="nav-text">事件处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单输入绑定"><span class="nav-number">6.</span> <span class="nav-text">表单输入绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修饰符"><span class="nav-number">7.</span> <span class="nav-text">修饰符</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lazy"><span class="nav-number">7.0.1.</span> <span class="nav-text">.lazy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#number"><span class="nav-number">7.0.2.</span> <span class="nav-text">.number</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#trim"><span class="nav-number">7.0.3.</span> <span class="nav-text">.trim</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局组件"><span class="nav-number">8.</span> <span class="nav-text">全局组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何设置全局的数据和全局的方法"><span class="nav-number">9.</span> <span class="nav-text">如何设置全局的数据和全局的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能优化"><span class="nav-number">10.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">11.</span> <span class="nav-text">数据绑定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码块"><span class="nav-number">12.</span> <span class="nav-text">代码块</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tag代码块"><span class="nav-number">12.0.1.</span> <span class="nav-text">Tag代码块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#JS代码块"><span class="nav-number">12.0.2.</span> <span class="nav-text">JS代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路径"><span class="nav-number">13.</span> <span class="nav-text">路径</span></a></li></div>
             
 
           </div>
